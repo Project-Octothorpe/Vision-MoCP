@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vision MoCP</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body onload="showPage1()" style="margin:0;">
+		<div class="siskind">		
+			<div style="display:none;" id="myDiv" class="animate-bottom">
+				<div class="row">
+					<h1>
+						<br><strong>Welcome</strong>
+						<br>to the 
+						<br><h1-black>MoCP collection</h1-black>.
+					</h1> 
+				</div>
+				<div class="row" style="margin-top: 275px">
+						<h4><h1-black>
+						<br>Let's find
+						<br>photographs
+						<br>using
+						<br><strong>machine learning</strong>
+						<br>& <strong>computer vision</strong>.</h1-black></h4>
+						<br>
+						<input type='file' id="upload-image" class="btn btn-secondary" ></input>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+    	function showPage1() {
+      		document.getElementById("myDiv").style.display = "block";
+    	}
+
+		$(function () {
+		    $(":file").change(function () {
+		        if (this.files && this.files[0]) {
+		            var reader = new FileReader();
+		            reader.onload = imageIsLoaded;
+		            reader.readAsDataURL(this.files[0]);
+		        }
+		    });
+		});
+
+		function imageIsLoaded(e) {
+		    $('#myImg').attr('src', e.target.result);
+		};
+	</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+
+
+h1-yellow{
+  color: #ffcb19;
+}
+
+h1-black{
+  color:black;
+}
+
+half-opacity{
+  opacity: .5;
+}
+
+#upload-image{
+  background-color: #ffcb19;
+  color:white;
+}
+
+#upload-image:hover{
+  background-color: #E5B716;
+  color:white;
+}
+
+.siskind {
+  background-image: url("../images/siskind.jpg");
+  background-size: cover;
+  height:100%;
+  width:105%;
+  position: absolute;
+}
+
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 3s;
+  animation-name: animatebottom;
+  animation-duration: 3s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-600px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-600px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+  left:50px;
+  color:#ffcb19;
+  width:100%;
+}
+
+#myDiv2{
+  background-color: black;
+  height:100%;
+}
+
+
+
+
