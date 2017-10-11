@@ -1,4 +1,4 @@
-
+body, html {height: 100%}
 
 h1-yellow{
   color: #ffcb19;
@@ -12,22 +12,31 @@ half-opacity{
   opacity: .5;
 }
 
+#carousel-inner{
+    background-size: cover;
+    height:100%;
+    position:absolute;
+}
+
 #upload-image{
   background-color: #ffcb19;
   color:white;
+  outline: none;
 }
 
 #upload-image:hover{
   background-color: #E5B716;
   color:white;
+  outline: none;
 }
 
 .siskind {
   background-image: url("../images/siskind.jpg");
+  min-height: 100vh;
+  min-width: 105%;
+  background-position: left;
   background-size: cover;
-  height:100%;
-  width:105%;
-  position: absolute;
+  position:absolute;
 }
 
 
@@ -50,6 +59,46 @@ half-opacity{
   to{ bottom:0; opacity:1 }
 }
 
+.animate-top {
+  position: relative;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 3s;
+  animation-name: animatetop;
+  animation-duration: 3s
+}
+
+@-webkit-keyframes animatetop {
+  from { top:-600px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatetop { 
+  from{ top:-600px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+.animate-slide {
+    position: absolute;
+    right: -550px;
+    width: 100%;
+    height: 100%;
+    background:none;
+    -webkit-animation: slide 3s forwards;
+    -webkit-animation-delay: 3s;
+    animation: slide 2s forwards;
+    animation-delay: 0s;
+}
+
+@-webkit-keyframes slide {
+  from { right:-200px; opacity:0 } 
+  to { right:0px; opacity:1 }
+}
+
+@keyframes slide { 
+  from{ right:-200px; opacity:0 } 
+  to{ right:0; opacity:1 }
+}
+
 #myDiv {
   display: none;
   left:50px;
@@ -61,6 +110,77 @@ half-opacity{
   background-color: black;
   height:100%;
 }
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: #E5B716;
+  text-decoration: none;
+  color:#ffcb19;
+}
+
+.slideContainerDiv{
+  height:100vh;
+  width:100vw;
+}
+
+#slideTwo{
+  background-color: #ffcb19;
+}
+
+.slideTwo{
+  background-color: #ffcb19;
+  height:100vh;
+  width:100vw;
+}
+
+#slideThree{
+  background-color:white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -25,7 +25,7 @@
 						<br><strong>machine learning</strong>
 						<br>& <strong>computer vision</strong>.</h1-black></h4>
 						<br>
-						<input type='file' id="upload-image" class="btn btn-secondary" ></input>
+						<input class="btn btn-primary btn-sm" type="button" value="Input" id="upload-image"></input>
 				</div>
 			</div>
 		</div>
@@ -33,23 +33,20 @@
 
 	<script type="text/javascript">
 
-    	function showPage1() {
-      		document.getElementById("myDiv").style.display = "block";
-    	}
+var slideIndex = 0;
+showSlides();
 
-		$(function () {
-		    $(":file").change(function () {
-		        if (this.files && this.files[0]) {
-		            var reader = new FileReader();
-		            reader.onload = imageIsLoaded;
-		            reader.readAsDataURL(this.files[0]);
-		        }
-		    });
-		});
-
-		function imageIsLoaded(e) {
-		    $('#myImg').attr('src', e.target.result);
-		};
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1} 
+    slides[slideIndex-1].style.display = "block"; 
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
 	</script>
 </body>
 </html>
