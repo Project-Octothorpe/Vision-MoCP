@@ -13,15 +13,14 @@
 
 	<div class="slideshow-container">
 		<div class="mySlides">
-		  	<div class="siskind w3-display-container w3-animate-opacity w3-text-white">
+		  	<div class="siskind w3-display-container w3-animate-opacity w3-text-white" style="overflow: hidden">
 		  		<div class="animate-top" id="slideText">
-		  		<div class="col-sm-8">
 		 			<div class="row">
-						<h1>
+						<h1><h1-black>
 							<br><strong>Welcome</strong>
 							<br>to the 
-							<br><h1-black><strong>MoCP</strong> collection</h1-black>.
-						</h1> 
+							<br><strong>MoCP</strong> collection.
+						</h1-black></h1> 
 					</div>
 					<div class="row" style="margin-top: 150px">
 						<h4><h1-black>
@@ -40,22 +39,30 @@
 								onclick="showSlides(1)">
 						</input>
 					</div>
-					</div>
 				</div>
 		    </div>
 		</div>
 		<div class="mySlides siskind" style="overflow: hidden">
 			<div class="slideTwo slideContainerDiv animate-bottom" style="width: 100%">
 				<div id="slideText">
-					<div class="row" style="margin-top:100px">
-						<h1>Hello World</h1>
+					<div class="row" id="text-test" style="margin-top:100px">
+						<h1>
+						Upload your image here.
+						</h1>
+						<input 	class="btn btn-primary btn-sm"
+								type="button"
+								value="upload here"
+								id="uploadImage-googleAPI"
+								style="border:none;"
+								onclick="">
+						</input>
 					</div>
 				</div>
 				<a class="next" onclick="showSlides(1)">&#10095;</a>
 			</div>
 		</div>
-		<div class="mySlides siskind slideContainerDiv">
-			<div class="slideContainerDiv animate-slide" id="slideThree">
+		<div class="mySlides siskind" style="overflow: hidden">
+			<div class="slideThree slideContainerDiv animate-slide">
 						<input 	class="btn btn-primary btn-lg" 
 								type="button" 
 								style="background-color: gray"
@@ -71,7 +78,10 @@
 
 
 	<script type="text/javascript">
-
+		$( ".next" ).click(function() {
+			console.log(this);
+  			$(".slideTwo").slideUp("slow");
+		});
 	
 
 
