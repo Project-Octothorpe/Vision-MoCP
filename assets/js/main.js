@@ -1,5 +1,7 @@
+//Vision Api Logic
 var api_key = 'AIzaSyBY93fja8yxM9not6Nrd2v6NsRgNpJ4ZvM';
 
+//Handles the User image upload.
 function uploadFiles(event) {
   console.log('uploaded file')
   event.stopPropagation(); // Stop stuff happening
@@ -13,9 +15,10 @@ function uploadFiles(event) {
   console.log(reader);
 }
 
+//Encodes the new base 64img
 function processFile(event) {
   var encodedFile = event.target.result;
-  //console.log(encodedFile);
+  //
   sendFiletoCloudVision(encodedFile);
 }
 
@@ -31,54 +34,51 @@ function displayJSON(object){
 }
 
 function sendFiletoCloudVision(file){
-
-var type = $("#type").val();
-//This will currently only allow jpeg images
-var content = file.replace("data:image/jpeg;base64,", "");
-showImage(content)
-  // Strip out the file prefix when you convert to json.
-  var json = {
-     "requests": [
-       { 
-         "image": {
-           "content": content 
-         },
-        "features": [
-           {
-             "type": type,
-             "maxResults": 10
-           }
-        ]
-      }
-    ]
-  }
-  //console.log(JSON.stringify(json));
-  json = JSON.stringify(json)
-
-
-
-
-$.ajax({
-    type: 'POST',
-    url: "https://vision.googleapis.com/v1/images:annotate?key=" + api_key,
-    dataType: 'json',
-    data: json,
-    //Include headers, otherwise you get an odd 400 error.
-    headers: {
-      "Content-Type": "application/json",
-    },
- 
-    success: function(data, textStatus, jqXHR) {
-      displayJSON(data);
-      //console.log(data);
-      //console.log(textStatus)
-      //console.log(jqXHR)
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-      console.log(jqXHR);
-      console.log(textStatus);
-      console.log(errorThrown);
+  var type = 'LABEL_DETECTION';
+  //This will currently only allow jpeg images
+  var content = file.replace("data:image/jpeg;base64,", "");
+  showImage(content)
+    // Strip out the file prefix when you convert to json.
+    var json = {
+       "requests": [
+         { 
+           "image": {
+             "content": content 
+           },
+          "features": [
+             {
+               "type": type,
+               "maxResults": 10
+             }
+          ]
+        }
+      ]
     }
+    //console.log(JSON.stringify(json));
+    json = JSON.stringify(json)
+
+  //Vision AJAX Request
+  $.ajax({
+      type: 'POST',
+      url: "https://vision.googleapis.com/v1/images:annotate?key=" + api_key,
+      dataType: 'json',
+      data: json,
+      //Include headers, otherwise you get an odd 400 error.
+      headers: {
+        "Content-Type": "application/json",
+      },
+   
+      success: function(data, textStatus, jqXHR) {
+        displayJSON(data);
+        //console.log(data);
+        //console.log(textStatus)
+        //console.log(jqXHR)
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR);
+        console.log(textStatus);
+        console.log(errorThrown);
+      }
   });
 }
 
