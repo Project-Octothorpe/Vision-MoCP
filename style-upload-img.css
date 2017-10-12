@@ -6,3 +6,11 @@
 	height: 50px;
 	width: 50px;
 }
+.fileUpload {
+	height: 0px;
+	overflow: hidden;
+}
+button {
+	background-color: black;
+	color: orange;
+}
