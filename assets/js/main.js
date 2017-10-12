@@ -22,6 +22,7 @@ function processFile(event) {
   sendFiletoCloudVision(encodedFile);
 }
 
+//Gets all the information from the returned json object
 function displayJSON(object){
   var labelArr = object.responses[0].labelAnnotations;
   var string = "";
@@ -33,6 +34,7 @@ function displayJSON(object){
   $('#results').append('<p>'+string+'</p>')
 }
 
+//Sends the file to CloudVision
 function sendFiletoCloudVision(file){
   var type = 'LABEL_DETECTION';
   //This will currently only allow jpeg images
@@ -87,7 +89,8 @@ function showImage(base64){
   $('#uploaded').append(image);
 }
 
-$('#submit').on('click', function(event){
+//
+$('#uploadImage').on('click', function(event){
   uploadFiles(event);
 })
 

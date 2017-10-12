@@ -49,16 +49,26 @@
 						<h1>
 						Upload your image here.
 						</h1>
+						<input class="btn btn-primary btn-sm"
+								id="fileInput"
+								type="file"
+								name="fileField"
+								type="button"
+								value="choose image from computer: "
+								style="border:none;">
+						<br>
 						<input 	class="btn btn-primary btn-sm"
 								type="button"
 								value="upload here"
-								id="uploadImage-googleAPI"
+								id="uploadImage"
 								style="border:none;"
 								onclick="">
 						</input>
 					</div>
 				</div>
 				<a class="next" onclick="showSlides(1)">&#10095;</a>
+				<div id="uploaded"></div>
+				<div id="results"></div>
 			</div>
 		</div>
 		<div class="mySlides siskind" style="overflow: hidden">
@@ -100,6 +110,6 @@
     	slides[slideIndex-1].style.display = "block"; 
 	}
 	</script>
-
+	<script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 </html>	
