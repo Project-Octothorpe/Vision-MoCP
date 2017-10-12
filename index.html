@@ -36,7 +36,7 @@
 								value="get started" 
 								id="upload-image" 
 								style="border:none"
-								onclick="showSlides(1)">
+								onclick="showSlides()">
 						</input>
 					</div>
 				</div>
@@ -78,7 +78,7 @@
 								style="background-color: gray"
 								value="restart" 
 								style="border:none"
-								onclick="showSlides(0)">
+								onclick="showSlides()">
 						</input>
 			</div>
 		</div>
@@ -88,27 +88,30 @@
 
 
 	<script type="text/javascript">
-		$( ".next" ).click(function() {
-			console.log(this);
-  			$(".slideTwo").slideUp("slow");
-		});
-	
+
+		var slideIndex = 0;
+
+		var slides = document.getElementsByClassName("mySlides");
+	    	for (i = 0; i < slides.length; i++) {
+	        	slides[i].style.display = "none"; 
+	        	console.log(slideIndex);
+	    	}
+
+		slides[0].style.display = "block";
 
 
-	var slideIndex = 0;
-	showSlides();
-
-	function showSlides() {
-    	var i;
-    	var slides = document.getElementsByClassName("mySlides");
-    	for (i = 0; i < slides.length; i++) {
-        	slides[i].style.display = "none"; 
-        	console.log("here");
-    	}
-    	slideIndex++;
-    	if (slideIndex > slides.length) {slideIndex = 1} 
-    	slides[slideIndex-1].style.display = "block"; 
-	}
+		function showSlides() {
+			console.log("showing slides");
+			var previousSlide = slideIndex;
+	    	slideIndex++;
+	    	if (slideIndex >= slides.length) {
+	    		console.log("restart");
+	    		slideIndex = 0;
+	    	} 
+	    	console.log(slideIndex);
+	    	slides[previousSlide].style.display = "none"; 
+	    	slides[slideIndex].style.display = "block"; 
+		}
 	</script>
 	<script type="text/javascript" src="assets/js/main.js"></script>
 </body>
