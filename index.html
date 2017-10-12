@@ -2,54 +2,94 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
 	<title>Vision MoCP</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<body onload="showPage1()" style="margin:0;">
-		<div class="siskind">		
-			<div style="display:none;" id="myDiv" class="animate-bottom">
-				<div class="row">
-					<h1>
-						<br><strong>Welcome</strong>
-						<br>to the 
-						<br><h1-black>MoCP collection</h1-black>.
-					</h1> 
-				</div>
-				<div class="row" style="margin-top: 275px">
+<body>
+
+	<div class="slideshow-container">
+		<div class="mySlides">
+		  	<div class="siskind w3-display-container w3-animate-opacity w3-text-white">
+		  		<div class="animate-top" id="slideText">
+		  		<div class="col-sm-8">
+		 			<div class="row">
+						<h1>
+							<br><strong>Welcome</strong>
+							<br>to the 
+							<br><h1-black><strong>MoCP</strong> collection</h1-black>.
+						</h1> 
+					</div>
+					<div class="row" style="margin-top: 150px">
 						<h4><h1-black>
-						<br>Let's find
-						<br>photographs
-						<br>using
-						<br><strong>machine learning</strong>
-						<br>& <strong>computer vision</strong>.</h1-black></h4>
+							<br>Let's find
+							<br>photographs
+							<br>using
+							<br><strong>machine learning</strong>
+							<br>& <strong>computer vision</strong>.</h1-black>
+						</h4>
 						<br>
-						<input class="btn btn-primary btn-sm" type="button" value="Input" id="upload-image"></input>
+						<input 	class="btn btn-primary btn-sm" 
+								type="button" 
+								value="get started" 
+								id="upload-image" 
+								style="border:none"
+								onclick="showSlides(1)">
+						</input>
+					</div>
+					</div>
 				</div>
+		    </div>
+		</div>
+		<div class="mySlides siskind" style="overflow: hidden">
+			<div class="slideTwo slideContainerDiv animate-bottom" style="width: 100%">
+				<div id="slideText">
+					<div class="row" style="margin-top:100px">
+						<h1>Hello World</h1>
+					</div>
+				</div>
+				<a class="next" onclick="showSlides(1)">&#10095;</a>
 			</div>
 		</div>
+		<div class="mySlides siskind slideContainerDiv">
+			<div class="slideContainerDiv animate-slide" id="slideThree">
+						<input 	class="btn btn-primary btn-lg" 
+								type="button" 
+								style="background-color: gray"
+								value="restart" 
+								style="border:none"
+								onclick="showSlides(0)">
+						</input>
+			</div>
+		</div>
+<!-- 		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  		<a class="next" onclick="plusSlides(1)">&#10095;</a> -->
 	</div>
+
 
 	<script type="text/javascript">
 
-    	function showPage1() {
-      		document.getElementById("myDiv").style.display = "block";
+	
+
+
+	var slideIndex = 0;
+	showSlides();
+
+	function showSlides() {
+    	var i;
+    	var slides = document.getElementsByClassName("mySlides");
+    	for (i = 0; i < slides.length; i++) {
+        	slides[i].style.display = "none"; 
+        	console.log("here");
     	}
-
-		$(function () {
-		    $(":file").change(function () {
-		        if (this.files && this.files[0]) {
-		            var reader = new FileReader();
-		            reader.onload = imageIsLoaded;
-		            reader.readAsDataURL(this.files[0]);
-		        }
-		    });
-		});
-
-		function imageIsLoaded(e) {
-		    $('#myImg').attr('src', e.target.result);
-		};
+    	slideIndex++;
+    	if (slideIndex > slides.length) {slideIndex = 1} 
+    	slides[slideIndex-1].style.display = "block"; 
+	}
 	</script>
+
 </body>
-</html>
+</html>	
