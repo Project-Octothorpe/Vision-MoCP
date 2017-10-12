@@ -1,5 +1,5 @@
 $(function () {
-    $(":file").change(function () {
+    $(".test").change(function () {
         if (this.files && this.files[0]) {
             var reader = new FileReader();
             reader.onload = imageIsLoaded;
@@ -11,3 +11,6 @@ $(function () {
 function imageIsLoaded(e) {
     $('#myImg').attr('src', e.target.result);
 };
+function chooseFile() {
+  document.getElementById("fileInput").click();
+}
