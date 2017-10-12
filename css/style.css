@@ -24,7 +24,13 @@ half-opacity{
   outline: none;
 }
 
-#upload-image:hover{
+#uploadImage-googleAPI{
+  background-color: white;
+  color:#ffcb19;
+  outline: none;
+}
+
+#upload-image #uploadImage-googleAPI:hover{
   background-color: #E5B716;
   color:white;
   outline: none;
@@ -170,8 +176,11 @@ half-opacity{
   width:100vw;
 }*/
 
-#slideThree{
+.slideThree{
   background-color:white;
+  background-size: cover;
+  width:100%;
+  position:absolute;
 }
 
 #slideText{
