@@ -114,13 +114,12 @@ function search(opts) {
           }
         })
         .done(function(data) {
-<<<<<<< HEAD
+
 
            shutterImageUrl = data.data[0].assets.preview.url;
           console.log(shutterImageUrl)
           var shutterImage = $('<img style="height:100vh" src="' + shutterImageUrl + '"/>');
            $('.received').append(shutterImage);
-=======
           if (data.total_count === 0) {
             console.log("none homie");
             return;
@@ -131,7 +130,6 @@ function search(opts) {
             var shutterImage = $('<img style="height:100vh" src="' + shutterImageURL + '"/>');
              $('.received').append(shutterImage);
            }
->>>>>>> b5f9522dc22c3f8c4367c99c7bf9c77975926aea
         })
         .fail(function(xhr, status, err) {
           alert('Failed to retrieve ' + mediaType + ' search results:\n' + JSON.stringify(xhr.responseJSON, null, 2));
