@@ -5,6 +5,7 @@ var API_URL = 'https://api.shutterstock.com/v2';
 var clientId = "cc7ea-f2b80-dd2ff-22097-cbcae-44883";//$('input[name=client_id]').val();
 var clientSecret = "dd14b-4447f-39c62-1052f-cb9cb-24460";//$('input[name=client_secret]').val();
 var authorization = 'Basic ' + window.btoa(clientId + ':' + clientSecret);
+var shutterImageUrl;
 
 //Handles the User image upload.
 function uploadFiles(event) {
@@ -114,9 +115,9 @@ function search(opts) {
         })
         .done(function(data) {
 
-          var shutterImageURL = data.data[0].assets.preview.url;
-          console.log(shutterImageURL)
-          var shutterImage = $('<img style="height:100vh" src="' + shutterImageURL + '"/>');
+           shutterImageUrl = data.data[0].assets.preview.url;
+          console.log(shutterImageUrl)
+          var shutterImage = $('<img style="height:100vh" src="' + shutterImageUrl + '"/>');
            $('.received').append(shutterImage);
         })
         .fail(function(xhr, status, err) {
@@ -135,6 +136,36 @@ $('#uploadImage').on('click', function(event){
   uploadFiles(event);
 })
 
+//Firebase stuff (hopefully works)
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDDZfcjCdkOOFwVReb0yK0VQL25h7S5yLY",
+    authDomain: "octothorpe-mocp.firebaseapp.com",
+    databaseURL: "https://octothorpe-mocp.firebaseio.com",
+    projectId: "octothorpe-mocp",
+    storageBucket: "octothorpe-mocp.appspot.com",
+    messagingSenderId: "1057063941890"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+
+$('#submit').on('click', function(){ 
+
+  // Retrieve user inputs from form
+  var hashtagName = $('#hashtag').val().trim();
+
+  var imageURL = shutterImageUrl
+
+  // Create an object for new hashtag to be added
+  var newHashtag = {
+    imageUrl: imageURL,
+    hashtagName: hashtagName
+  };
+
+    database.ref().push(newHashtag);
+  });
 
 
 
