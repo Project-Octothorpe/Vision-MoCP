@@ -230,6 +230,16 @@ label span input {
   overflow: hidden;
 }
 
+.received{
+  min-height: 100vh;
+  width:100%;
+  align-items: center;
+  background-size: cover;
+  position:absolute;
+  overflow:hidden;
+  background-color:black;
+}
+
 
 
 
