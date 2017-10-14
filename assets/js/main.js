@@ -113,11 +113,16 @@ function search(opts) {
           }
         })
         .done(function(data) {
-
-          var shutterImageURL = data.data[0].assets.preview.url;
-          console.log(shutterImageURL)
-          var shutterImage = $('<img style="height:100vh" src="' + shutterImageURL + '"/>');
-           $('.received').append(shutterImage);
+          if (data.total_count === 0) {
+            console.log("none homie");
+            return;
+          }
+          else {
+            var shutterImageURL = data.data[0].assets.preview.url;
+            console.log(shutterImageURL)
+            var shutterImage = $('<img style="height:100vh" src="' + shutterImageURL + '"/>');
+             $('.received').append(shutterImage);
+           }
         })
         .fail(function(xhr, status, err) {
           alert('Failed to retrieve ' + mediaType + ' search results:\n' + JSON.stringify(xhr.responseJSON, null, 2));
