@@ -1,6 +1,11 @@
 //Vision Api Logic
 var api_key = 'AIzaSyBY93fja8yxM9not6Nrd2v6NsRgNpJ4ZvM';
 
+var API_URL = 'https://api.shutterstock.com/v2';
+var clientId = "cc7ea-f2b80-dd2ff-22097-cbcae-44883";//$('input[name=client_id]').val();
+var clientSecret = "dd14b-4447f-39c62-1052f-cb9cb-24460";//$('input[name=client_secret]').val();
+var authorization = 'Basic ' + window.btoa(clientId + ':' + clientSecret);
+
 //Handles the User image upload.
 function uploadFiles(event) {
   console.log('uploaded file')
@@ -25,13 +30,23 @@ function processFile(event) {
 //Gets all the information from the returned json object
 function displayJSON(object){
   var labelArr = object.responses[0].labelAnnotations;
-  var string = "";
-  for (var i=0; i < labelArr.length; i++){
+  // var string = "";
+  // for (var i=0; i < labelArr.length; i++){
+  //   console.log(labelArr[i].description + " | " + parseInt(labelArr[i].score*100) + "% match");
+  //   $('#results').append('<p>'+labelArr[i].description + " | " + parseInt(labelArr[i].score*100) + "% match" + '</p>');
+  //   string += labelArr[i].description + ", "
+  // }
+  var apiString = "";
+  for (var i=0; i < 3; i++) {
     console.log(labelArr[i].description + " | " + parseInt(labelArr[i].score*100) + "% match");
     $('#results').append('<p>'+labelArr[i].description + " | " + parseInt(labelArr[i].score*100) + "% match" + '</p>');
-    string += labelArr[i].description + ", "
+    apiString += labelArr[i].description + "+"
   }
-  $('#results').append('<p>'+string+'</p>')
+  $('#results').append('<p>'+apiString+'</p>')
+  // apiString = labelArr[0].description //+'+'+labelArr[1].description+'+'+labelArr[2].description;
+  // apiString = apiString.replace(" ", "+");
+  console.log("here is" + apiString)
+  search({query:labelArr[0].description});
 }
 
 //Sends the file to CloudVision
@@ -86,6 +101,29 @@ function sendFiletoCloudVision(file){
       }
   });
 }
+function search(opts) {
+        console.log("look here" + opts);
+        var url = API_URL + '/images/search';
+        console.log(url);
+        $.ajax({
+          url: url,
+          data: opts,
+          headers: {
+            Authorization: authorization
+          }
+        })
+        .done(function(data) {
+
+          var shutterImageURL = data.data[0].assets.preview.url;
+          console.log(shutterImageURL)
+          var shutterImage = $('<img style="height:100vh" src="' + shutterImageURL + '"/>');
+           $('.uploaded').append(shutterImage);
+        })
+        .fail(function(xhr, status, err) {
+          alert('Failed to retrieve ' + mediaType + ' search results:\n' + JSON.stringify(xhr.responseJSON, null, 2));
+        });
+        return;
+      }
 
 function showImage(base64){
   var image = $('<img style="height:100vh" src="data:image/jpeg;base64, '+ base64 +'" />');
