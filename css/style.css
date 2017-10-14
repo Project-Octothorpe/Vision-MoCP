@@ -4,6 +4,7 @@ h1-yellow{
   color: #ffcb19;
 }
 
+
 h1-black{
   color:black;
 }
@@ -148,6 +149,7 @@ half-opacity{
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
+  z-index: 100;
 }
 
 /* On hover, add a black background color with a little bit see-through */
@@ -188,11 +190,45 @@ half-opacity{
   color:white;
 }
 
+label.filebutton {
+    width:120px;
+    height:40px;
+    overflow:hidden;
+    position:relative;
+    background-color:#ccc;
+}
 
+label span input {
+    z-index: 999;
+    line-height: 0;
+    font-size: 50px;
+    position: absolute;
+    top: -2px;
+    left: -700px;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    -ms-filter: "alpha(opacity=0)";
+    cursor: pointer;
+    _cursor: hand;
+    margin: 0;
+    padding:0;
+}
 
+.uploaded{
+  min-height: 100vh;
+  width:100%;
+  align-items: center;
+  background-size: cover;
+  position:absolute;
+  overflow:hidden;
+}
 
-
-
+.results{
+  position:absolute;
+  text-align: left;
+  padding:5%;
+  overflow: hidden;
+}
 
 
 

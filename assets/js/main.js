@@ -85,8 +85,8 @@ function sendFiletoCloudVision(file){
 }
 
 function showImage(base64){
-  var image = $('<img style="width: 400px;" src="data:image/jpeg;base64, '+ base64 +'" />');
-  $('#uploaded').append(image);
+  var image = $('<img style="height:100vh" src="data:image/jpeg;base64, '+ base64 +'" />');
+  $('.uploaded').append(image);
 }
 
 //
