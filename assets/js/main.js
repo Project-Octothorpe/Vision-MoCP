@@ -40,9 +40,13 @@ function displayJSON(object){
   for (var i=0; i < 3; i++) {
     console.log(labelArr[i].description + " | " + parseInt(labelArr[i].score*100) + "% match");
     $('#results').append('<p>'+labelArr[i].description + " | " + parseInt(labelArr[i].score*100) + "% match" + '</p>');
-    apiString += labelArr[i].description + ", "
+    apiString += labelArr[i].description + "+"
   }
   $('#results').append('<p>'+apiString+'</p>')
+  // apiString = labelArr[0].description //+'+'+labelArr[1].description+'+'+labelArr[2].description;
+  // apiString = apiString.replace(" ", "+");
+  console.log("here is" + apiString)
+  search({query:labelArr[0].description});
 }
 
 //Sends the file to CloudVision
@@ -98,9 +102,8 @@ function sendFiletoCloudVision(file){
       }
   });
 }
-
 function search(opts) {
-        console.log(opts);
+        console.log("look here" + opts);
         var url = API_URL + '/images/search';
         console.log(url);
         $.ajax({
@@ -111,8 +114,11 @@ function search(opts) {
           }
         })
         .done(function(data) {
-          console.log("This is working");
-          console.log(data);
+
+          var shutterImageURL = data.data[0].assets.preview.url;
+          console.log(shutterImageURL)
+          var shutterImage = $('<img style="height:100vh" src="' + shutterImageURL + '"/>');
+           $('.uploaded').append(shutterImage);
         })
         .fail(function(xhr, status, err) {
           alert('Failed to retrieve ' + mediaType + ' search results:\n' + JSON.stringify(xhr.responseJSON, null, 2));
