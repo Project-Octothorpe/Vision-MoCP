@@ -38,7 +38,10 @@ function displayJSON(object){
 function sendFiletoCloudVision(file){
   var type = 'LABEL_DETECTION';
   //This will currently only allow jpeg images
-  var content = file.replace("data:image/jpeg;base64,", "");
+  var fileType = file.split(',');
+  fileType = fileType[0] + ",";
+  console.log(fileType)
+  var content = file.replace(fileType, "");
   showImage(content)
     // Strip out the file prefix when you convert to json.
     var json = {
@@ -72,7 +75,7 @@ function sendFiletoCloudVision(file){
    
       success: function(data, textStatus, jqXHR) {
         displayJSON(data);
-        //console.log(data);
+        console.log(data);
         //console.log(textStatus)
         //console.log(jqXHR)
       },
