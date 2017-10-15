@@ -259,6 +259,10 @@ label span input {
   background-color:black;
 }
 
+#loader{
+  position:absolute;
+}
+
 
 
 

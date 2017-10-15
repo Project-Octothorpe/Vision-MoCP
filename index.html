@@ -64,7 +64,7 @@
 								value="upload here"
 								id="uploadImage"
 								style="border:none;"
-								onclick="showSlides(1)">
+								onclick="showSlides()">
 						</input>
 					</div>
 				</div>
@@ -73,9 +73,12 @@
 		<div class="mySlides skiskind" style="overflow:hidden">
 			<div class="uploaded animate-slide">
 					<h3 style="margin:0px">
-					<div id="results" class="results animate-top-results">
-						<a class="next" onclick="showSlides()">&#10095;</a>
-					</div>
+						<div id="loader">
+							<h1>This is a loader</h1>
+						</div>
+						<div id="results" class="results animate-top-results" style="display:none">
+							<a class="next" onclick="showSlides()">&#10095;</a>
+						</div>
 					</h3>
 			</div>
 		</div>
@@ -114,10 +117,10 @@
 		var slideIndex = 0;
 
 		var slides = document.getElementsByClassName("mySlides");
-	    	for (i = 0; i < slides.length; i++) {
-	        	slides[i].style.display = "none"; 
-	        	console.log(slideIndex);
-	    	}
+	    for (i = 0; i < slides.length; i++) {
+	        slides[i].style.display = "none"; 
+	        console.log(slideIndex);
+	    }
 
 		slides[0].style.display = "block";
 
@@ -134,6 +137,20 @@
 	    	slides[previousSlide].style.display = "none"; 
 	    	slides[slideIndex].style.display = "block"; 
 		}
+
+
+	$("#uploadImage").on('click', function(){
+		console.log("timer for loading screen is working");
+    	function resultsTimer() {
+    		$("#loader").hide();
+    		$("#results").fadeIn(100);
+    	}
+    	setTimeout(resultsTimer, 3000);
+	});
+  
+
+
+
 
 
 	</script>
