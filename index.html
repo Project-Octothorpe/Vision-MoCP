@@ -14,6 +14,8 @@
 <body>
 
 	<div class="slideshow-container">
+
+<!-- 	This is the first slide  -->
 		<div class="mySlides">
 		  	<div class="siskind w3-display-container w3-animate-opacity w3-text-white" style="overflow: hidden">
 		  		<div class="animate-top" id="slideText">
@@ -44,6 +46,8 @@
 				</div>
 		    </div>
 		</div>
+
+<!-- 	This is the second slide -->
 		<div class="mySlides siskind" style="overflow: hidden">
 			<div class="slideTwo slideContainerDiv animate-bottom" style="width: 100%">
 				<div id="slideText">
@@ -59,7 +63,7 @@
 								name="fileField"></span>
 						</label>
 						<br>
-						<input 	class="btn btn-primary btn-sm"
+						<input 	class="btn btn-primary btn-sm sexy-button"
 								type="button"
 								value="upload here"
 								id="uploadImage"
@@ -70,30 +74,68 @@
 				</div>
 			</div>
 		</div>
+
+<!-- 	This is the third slide -->
 		<div class="mySlides skiskind" style="overflow:hidden">
 			<div class="uploaded animate-slide">
 					<h3 style="margin:0px">
+					<!-- This is the Loader div on timer -->
 						<div id="loader">
 							<div id="loader-container" style="display:none">
 								<img 	id="loader-images" 
-										src="images/loader-1.png" 
+										src="images/loader-start-01.png" 
 										style="width:100%" />
 							</div>
 						</div>
+					<!-- This is the results div that will replace loader -->
 						<div id="results" class="results animate-top-results" style="display:none">
-							<a class="next" onclick="showSlides()">&#10095;</a>
+							<a 	class="next" 
+								id="next-button"
+								onclick="showSlides()"
+								>&#10095;</a>
 						</div>
 					</h3>
 			</div>
 		</div>
+
+<!-- 	This is the fourth slide -->
 		<div class="mySlides uploaded" style="overflow:hidden">
+		<!-- This is the shutterstock image div -->
 			<div class="received animate-slide">
-				<div class="col-6 col-md-4">
-					<input type="text" id="hashtag">Awesome! Give it a hashtag!</input>
-					<button id ="submit">Submit</button>
-						<a class="next" onclick="showSlides()">&#10095;</a>
+				<!-- This is where the info on the photo will go -->
+				<div id = "photo-info" class="results animate-top-results" style="display:none">
+					<h3 style="margin:15px">
+						This is where the photo info will go in the future.
+					</h3>
+				</div>
+				<!-- This is the hashtag form div on timer -->
+				<div id = "hashtag-form" class="results animate-top-results" style="display:none">
+					<h3 style="margin:0px">
+						Lets give it a hashtag.
+					</h3>
+					<br>
+					<input type="text" id="hashtag"></input>
+					<button id ="submit"
+							class="btn btn-primary btn-sm sexy-button"
+					>Submit</button>
+					<br>
+					<br>
+					<br>
+					In 1980, the Museum of Contemporary Photography established a permanent collection and it is through this collection that the museum has been able to provide an invaluable research and educational resource to the general public and thousands of students. In 2009, the growing collection was digitized and made available online for free to the general public. 
+					<br>
+					<br>
+					To extend the reach of the Museum of Contemporary Photography’s vast resources from the collection and enhance connections between the institution and the community, we are utilizing user-generated terms to search through the museum’s collection of over 12,000 photographs.
+					<h3 style="margin:0px">
+						<br>
+						Thank you for participating.
+						<br>
+					</h3>
+						Let's see what others have tagged this photo as. 
+					<a class="next" onclick="showSlides()">&#10095;</a>
+				</div>
 			</div>
-		</div>
+
+<!-- 	This is the fifth slide -->
 		<div class="mySlides received" style="overflow: hidden">
 			<div class="slideThree slideContainerDiv animate-slide">
 				<div class="slideText">
@@ -117,7 +159,7 @@
 
 	<script type="text/javascript">
 
-	// Javascript for the slideshow
+		// main slideshow code
 		var slideIndex = 0;
 
 		var slides = document.getElementsByClassName("mySlides");
@@ -141,51 +183,68 @@
 	    	slides[previousSlide].style.display = "none"; 
 	    	slides[slideIndex].style.display = "block"; 
 		}
+		// end of main slideshow code
 
 
-	$("#uploadImage").on('click', function(){
-		console.log("timer for loading screen is working");
-    	function resultsTimer() {
-    		$("#loader").hide();
-    		$("#results").fadeIn(100);
-    	}
-    	setTimeout(resultsTimer, 4000);
-	});
 
-	var loaderImagesArray = [ 	'images/loader-start-01.png',
-								'images/loader-1.png',
-								'images/loader-2.png', 
-								'images/loader-3.png',
-								'images/loader-4.png'
-							];
+		// This timer activates the loader animation 
+		$("#uploadImage").on('click', function(){
+			console.log("timer for loading screen is working");
+	    	function resultsTimer() {
+	    		$("#loader").hide();
+	    		$("#results").fadeIn(100);
+	    	}
+	    	setTimeout(resultsTimer, 4500);
+		});
 
-
-	$("#uploadImage").on("click", function(){
-		setTimeout(function(){
-			$("#loader-container").fadeIn(500);
-		}, 1500);
-
-		for (count=0; count<5; count++){
+		// This timer activates the photo info page
+		$("#next-button").on('click', function() {
 			setTimeout(function(){
-				$("#loader-images").attr('src', loaderImagesArray[0]);
-			}, 1500);
-
-			setTimeout(function(){
-				$("#loader-images").attr('src', loaderImagesArray[1]);
-			}, 2000);
-
-			setTimeout(function(){
-				$("#loader-images").attr('src', loaderImagesArray[2]);
+				$("#photo-info").fadeIn(500);
 			}, 2500);
+		});
 
+		// This timer activates the hashtag form
+		$("#next-button").on('click', function() {
 			setTimeout(function(){
-				$("#loader-images").attr('src', loaderImagesArray[3]);
-			}, 3000);
+				$("#photo-info").hide();
+				$("#hashtag-form").fadeIn(500);
+			}, 8000);
+		});
+
+		// This is the img array and timers for loader animation
+		var loaderImagesArray = [ 	'images/loader-start-01.png',
+									'images/loader-1.png',
+									'images/loader-2.png', 
+									'images/loader-3.png',
+									'images/loader-4.png'
+								];
+		$("#uploadImage").on("click", function(){
 			setTimeout(function(){
-				$("#loader-images").attr('src', loaderImagesArray[4]);
-			}, 3500);
-		}
-	});
+				$("#loader-container").fadeIn(1000);
+			}, 1000);
+
+			for (count=0; count<5; count++){
+				setTimeout(function(){
+					$("#loader-images").attr('src', loaderImagesArray[0]);
+				}, 2000);
+
+				setTimeout(function(){
+					$("#loader-images").attr('src', loaderImagesArray[1]);
+				}, 2500);
+
+				setTimeout(function(){
+					$("#loader-images").attr('src', loaderImagesArray[2]);
+				}, 3000);
+
+				setTimeout(function(){
+					$("#loader-images").attr('src', loaderImagesArray[3]);
+				}, 3500);
+				setTimeout(function(){
+					$("#loader-images").attr('src', loaderImagesArray[4]);
+				}, 4000);
+			}
+		});
 
 
 	</script>

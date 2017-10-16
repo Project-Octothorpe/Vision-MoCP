@@ -13,6 +13,12 @@ half-opacity{
   opacity: .5;
 }
 
+.sexy-button{
+  background-color: #ffcb19;
+  color:white;
+  outline: none;
+}
+
 #carousel-inner{
     background-size: cover;
     height:100%;
@@ -31,7 +37,7 @@ half-opacity{
   outline: none;
 }
 
-#upload-image #uploadImage-googleAPI:hover{
+#upload-image #uploadImage-googleAPI #sexy-button:hover{
   background-color: #E5B716;
   color:white;
   outline: none;
@@ -264,9 +270,6 @@ label span input {
   top:50%;
 }
 
-#loader{
-  background-color: white;
-}
 
 
 
