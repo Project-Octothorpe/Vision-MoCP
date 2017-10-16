@@ -134,7 +134,36 @@ function showImage(base64){
 $('#uploadImage').on('click', function(event){
   uploadFiles(event);
 })
+//Firebase stuff (hopefully works)
 
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDDZfcjCdkOOFwVReb0yK0VQL25h7S5yLY",
+    authDomain: "octothorpe-mocp.firebaseapp.com",
+    databaseURL: "https://octothorpe-mocp.firebaseio.com",
+    projectId: "octothorpe-mocp",
+    storageBucket: "octothorpe-mocp.appspot.com",
+    messagingSenderId: "1057063941890"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+
+$('#submit').on('click', function(){ 
+
+  // Retrieve user inputs from form
+  var hashtagName = $('#hashtag').val().trim();
+
+  var imageURL = shutterImageUrl
+
+  // Create an object for new hashtag to be added
+  var newHashtag = {
+    imageUrl: imageURL,
+    hashtagName: hashtagName
+  };
+
+    database.ref().push(newHashtag);
+  });
 
 
 
