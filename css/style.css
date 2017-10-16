@@ -259,9 +259,15 @@ label span input {
   background-color:black;
 }
 
-#loader{
+#loader-container{
   position:absolute;
+  top:50%;
 }
+
+#loader{
+  background-color: white;
+}
+
 
 
 

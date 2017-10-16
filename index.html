@@ -74,7 +74,11 @@
 			<div class="uploaded animate-slide">
 					<h3 style="margin:0px">
 						<div id="loader">
-							<h1>This is a loader</h1>
+							<div id="loader-container" style="display:none">
+								<img 	id="loader-images" 
+										src="images/loader-1.png" 
+										style="width:100%" />
+							</div>
 						</div>
 						<div id="results" class="results animate-top-results" style="display:none">
 							<a class="next" onclick="showSlides()">&#10095;</a>
@@ -145,15 +149,49 @@
     		$("#loader").hide();
     		$("#results").fadeIn(100);
     	}
-    	setTimeout(resultsTimer, 3000);
+    	setTimeout(resultsTimer, 4000);
 	});
-  
+
+	var loaderImagesArray = [ 	'images/loader-start-01.png',
+								'images/loader-1.png',
+								'images/loader-2.png', 
+								'images/loader-3.png',
+								'images/loader-4.png'
+							];
 
 
+	$("#uploadImage").on("click", function(){
+		setTimeout(function(){
+			$("#loader-container").fadeIn(500);
+		}, 1500);
 
+		for (count=0; count<5; count++){
+			setTimeout(function(){
+				$("#loader-images").attr('src', loaderImagesArray[0]);
+			}, 1500);
+
+			setTimeout(function(){
+				$("#loader-images").attr('src', loaderImagesArray[1]);
+			}, 2000);
+
+			setTimeout(function(){
+				$("#loader-images").attr('src', loaderImagesArray[2]);
+			}, 2500);
+
+			setTimeout(function(){
+				$("#loader-images").attr('src', loaderImagesArray[3]);
+			}, 3000);
+			setTimeout(function(){
+				$("#loader-images").attr('src', loaderImagesArray[4]);
+			}, 3500);
+		}
+	});
 
 
 	</script>
 	<script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 </html>	
+
+
+
