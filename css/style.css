@@ -85,9 +85,9 @@ half-opacity{
 .animate-top-results {
   position: relative;
   -webkit-animation-name: animatetopResultsAmanda;
-  -webkit-animation-duration: 3s;
+  -webkit-animation-duration: 2s;
   animation-name: animatetopResultsAmanda;
-  animation-duration: 3s;
+  animation-duration: 2s;
 }
 
 
