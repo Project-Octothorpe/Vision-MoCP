@@ -1,9 +1,12 @@
+
+
+/* ------- styling text ------- */
+
 body, html {height: 100%}
 
 h1-yellow{
   color: #ffcb19;
 }
-
 
 h1-black{
   color:black;
@@ -13,11 +16,105 @@ half-opacity{
   opacity: .5;
 }
 
-.sexy-button{
-  background-color: #ffcb19;
-  color:white;
-  outline: none;
-}
+* {box-sizing:border-box}
+
+
+/* ------- classes ------- */
+
+/* slideshow containers */
+  
+  .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+
+  .mySlides {
+  }
+
+  .slideContainerDiv{
+  height:100vh;
+  width:100vw;
+  overflow: none;
+  }
+
+  .slideTwo{
+    background-color:black;
+    background-size: cover;
+    width:100%;
+    position:absolute;
+  }
+
+  .slideThree{
+    background-color:white;
+    background-size: cover;
+    width:100%;
+    position:absolute;
+  }
+
+  .uploaded{
+    min-height: 100vh;
+    width:100%;
+    align-items: center;
+    background-size: cover;
+    position:absolute;
+    overflow:hidden;
+  }
+
+/* slideshow backgrounds */
+
+  .siskind {
+    background-image: url("../images/siskind.jpg");
+    min-height: 100vh;
+    min-width: 105%;
+    align-items: left;
+    background-size: cover;
+    position:absolute;
+  }
+
+  .black-background{
+    background-color: black;
+    min-height: 100vh;
+    min-width: 100%;
+    align-items: left;
+    background-size: cover;
+    position:absolute;
+  }
+
+  .received-background {
+    background-color:#eaeaea;
+    min-height: 100vh;
+    min-width: 100%;
+    align-items: left;
+    background-size: cover;
+    position:absolute;
+  }
+
+/*animated forms*/
+
+  .results{
+    position:absolute;
+    text-align: left;
+    padding:5%;
+    overflow: hidden;
+    background-color:black;
+    color:white;
+    opacity:.7;
+    min-height: 100vh;
+    width:100%;
+  }
+
+  .received{
+    align-items: center;
+    position:relative;
+    overflow:hidden;
+    width:100%;
+    height: 100vh;
+  }
+
+
+
+/* ------- ID's ------- */ 
 
 #carousel-inner{
     background-size: cover;
@@ -37,122 +134,6 @@ half-opacity{
   outline: none;
 }
 
-#upload-image #uploadImage-googleAPI #sexy-button:hover{
-  background-color: #E5B716;
-  color:white;
-  outline: none;
-}
-
-.siskind {
-  background-image: url("../images/siskind.jpg");
-  min-height: 100vh;
-  min-width: 105%;
-  align-items: left;
-  background-size: cover;
-  position:absolute;
-}
-
-
-/* Add animation to "page content" */
-.animate-bottom {
-  position: relative;
-  -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 3s;
-  animation-name: animatebottom;
-  animation-duration: 3s;
-}
-
-@-webkit-keyframes animatebottom {
-  from { bottom:-1000px; opacity:0; } 
-  to { bottom:0px; opacity:1; }
-}
-
-@keyframes animatebottom { 
-  from{ bottom:-1000px; opacity:0; } 
-  to{ bottom:0; opacity:1; }
-}
-
-.animate-top-results {
-  position: relative;
-  -webkit-animation-name: animatetopResultsAmanda;
-  -webkit-animation-duration: 3s;
-  animation-name: animatetopResultsAmanda;
-  animation-duration: 3s;
-}
-
-
-.animate-top {
-  position: relative;
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 3s;
-  animation-name: animatetop;
-  animation-duration: 3s;
-}
-
-@-webkit-keyframes animatetopResultsAmanda {
-  from { top:-100%; opacity: 0; } 
-  to { top: 0px; opacity: .5; }
-}
-
-/*@keyframes animatetopResultsAmanda { 
-  from{ top:-600px; opacity:0; } 
-  to{ bottom: 0; opacity:1; }
-}*/
-
-@-webkit-keyframes animatetop {
-  from { top:-600px; opacity:0; } 
-  to { bottom:0px; opacity:1; }
-}
-
-@keyframes animatetop { 
-  from{ top:-600px; opacity:0; } 
-  to{ bottom:0; opacity:1; }
-}
-
-.animate-slide {
-    position: absolute;
-    right: -550px;
-    width: 100%;
-    height: 100%;
-    background:none;
-    -webkit-animation: slide 1s forwards;
-    -webkit-animation-delay: 0s;
-    animation: slide 1s forwards;
-    animation-delay: 0s;
-}
-
-@-webkit-keyframes slide {
-  from { right:-200px; opacity:0 } 
-  to { right:0px; opacity:1 }
-}
-
-@keyframes slide { 
-  from{ right:-200px; opacity:0 } 
-  to{ right:0; opacity:1 }
-}
-
-.animate-slide-mocp {
-    position: absolute;
-    right: -550px;
-    width: 100%;
-    height: 100%;
-    background:none;
-    -webkit-animation: slideMocp 1s forwards;
-    -webkit-animation-delay: 0s;
-    animation: slideMocp 1s forwards;
-    animation-delay: 0s;
-}
-
-@-webkit-keyframes slideMocp {
-  from { right:-100%; opacity:0; } 
-  to { right:0px; opacity:.5; }
-}
-
-@keyframes slideMocp { 
-  from{ right:-100%; opacity:0; } 
-  to{ right:0; opacity:.5; }
-}
-
 #myDiv {
   display: none;
   left:50px;
@@ -165,126 +146,9 @@ half-opacity{
   height:100%;
 }
 
-* {box-sizing:border-box}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-.mySlides {
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-  z-index: 100;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: #E5B716;
-  text-decoration: none;
-  color:#ffcb19;
-}
-
-.slideContainerDiv{
-  height:100vh;
-  width:100vw;
-  overflow: none;
-}
-
-.slideTwo{
-  background-color:black;
-  background-size: cover;
-  width:100%;
-  position:absolute;
-}
-
-
-.slideThree{
-  background-color:white;
-  background-size: cover;
-  width:100%;
-  position:absolute;
-}
-
 #slideText{
   margin-left: 50px;
   color:white;
-}
-
-label.filebutton {
-    width:120px;
-    height:40px;
-    overflow:hidden;
-    position:relative;
-    background-color:#ccc;
-}
-
-label span input {
-    z-index: 999;
-    line-height: 0;
-    font-size: 50px;
-    position: absolute;
-    top: -2px;
-    left: -700px;
-    opacity: 0;
-    filter: alpha(opacity = 0);
-    -ms-filter: "alpha(opacity=0)";
-    cursor: pointer;
-    _cursor: hand;
-    margin: 0;
-    padding:0;
-}
-
-.uploaded{
-  min-height: 100vh;
-  width:100%;
-  align-items: center;
-  background-size: cover;
-  position:absolute;
-  overflow:hidden;
-}
-
-.results{
-  position:absolute;
-  text-align: left;
-  padding:5%;
-  overflow: hidden;
-  background-color:black;
-  color:white;
-  opacity:.5;
-  min-height: 100vh;
-  width:100%;
-}
-
-.received{
-  min-height: 100vh;
-  width:100%;
-  align-items: center;
-  background-size: cover;
-  position:absolute;
-  overflow:hidden;
-  background-color:black;
 }
 
 #loader-container{
@@ -292,6 +156,173 @@ label span input {
   top:50%;
 }
 
+
+
+
+/* ------- animations ------- */
+
+/*animate-bottom animation*/
+  .animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 3s;
+    animation-name: animatebottom;
+    animation-duration: 3s;
+  }
+    @-webkit-keyframes animatebottom {
+      from { bottom:-1000px; opacity:0; } 
+      to { bottom:0px; opacity:1; }
+    }
+    @keyframes animatebottom { 
+      from{ bottom:-1000px; opacity:0; } 
+      to{ bottom:0; opacity:1; }
+    }
+
+/*animate-top at 70% opacity*/
+  .animate-top-results {
+    position: relative;
+    -webkit-animation-name: animatetopResultsAmanda;
+    -webkit-animation-duration: 3s;
+    animation-name: animatetopResultsAmanda;
+    animation-duration: 3s;
+  }
+    @-webkit-keyframes animatetopResultsAmanda {
+      from { top:-100%; opacity: 0; } 
+      to { top: 0px; opacity: .7; }
+    }
+
+    /*@keyframes animatetopResultsAmanda { 
+      from{ top:-600px; opacity:0; } 
+      to{ bottom: 0; opacity:1; }
+    }*/
+
+/*animate-top at 100% opacity*/
+  .animate-top {
+    position: relative;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 3s;
+    animation-name: animatetop;
+    animation-duration: 3s;
+  }
+    @-webkit-keyframes animatetop {
+      from { top:-600px; opacity:0; } 
+      to { bottom:0px; opacity:1; }
+    }
+    @keyframes animatetop { 
+      from{ top:-600px; opacity:0; } 
+      to{ bottom:0; opacity:1; }
+    }
+
+/*animate-slide at 100% opacity*/
+  .animate-slide {
+      position: absolute;
+      right: -550px;
+      width: 100%;
+      height: 100%;
+      background:none;
+      -webkit-animation: slide 1s forwards;
+      -webkit-animation-delay: 0s;
+      animation: slide 1s forwards;
+      animation-delay: 0s;
+  }
+    @-webkit-keyframes slide {
+      from { right:-200px; opacity:0 } 
+      to { right:0px; opacity:1 }
+    }
+    @keyframes slide { 
+      from{ right:-200px; opacity:0 } 
+      to{ right:0; opacity:1 }
+    }
+
+/*animate-slide at 70% opacity*/
+  .animate-slide-mocp {
+      position: absolute;
+      right: -550px;
+      width: 100%;
+      height: 100%;
+      background:none;
+      -webkit-animation: slideMocp 1s forwards;
+      -webkit-animation-delay: 0s;
+      animation: slideMocp 1s forwards;
+      animation-delay: 0s;
+  }
+    @-webkit-keyframes slideMocp {
+      from { right:-100%; opacity:0; } 
+      to { right:0px; opacity:.7; }
+    }
+    @keyframes slideMocp { 
+      from{ right:-100%; opacity:0; } 
+      to{ right:0; opacity:.7; }
+    }
+
+
+
+
+
+/* ------- buttons & inputs ------- */
+
+/*previous and next buttons*/
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+  }
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+      z-index: 100;
+    }
+    .prev:hover, .next:hover {
+      background-color: #E5B716;
+      text-decoration: none;
+      color:#ffcb19;
+    }
+
+/*file inputs*/
+  label.filebutton {
+      width:120px;
+      height:40px;
+      overflow:hidden;
+      position:relative;
+      background-color:#ccc;
+  }
+  label span input {
+      z-index: 999;
+      line-height: 0;
+      font-size: 50px;
+      position: absolute;
+      top: -2px;
+      left: -700px;
+      opacity: 0;
+      filter: alpha(opacity = 0);
+      -ms-filter: "alpha(opacity=0)";
+      cursor: pointer;
+      _cursor: hand;
+      margin: 0;
+      padding:0;
+  }
+
+/*sexiest custom button ;)*/
+  .sexy-button{
+    background-color: #ffcb19;
+    color:white;
+    outline: none;
+  }
+
+  #upload-image #uploadImage-googleAPI #sexy-button:hover{
+    background-color: #E5B716;
+    color:white;
+    outline: none;
+  }
 
 
 

@@ -76,7 +76,7 @@
 		</div>
 
 <!-- 	This is the third slide -->
-		<div class="mySlides skiskind" style="overflow:hidden">
+		<div class="mySlides black-background" style="overflow:hidden">
 			<div class="uploaded animate-slide">
 					<h3 style="margin:0px">
 					<!-- This is the Loader div on timer -->
@@ -101,48 +101,54 @@
 <!-- 	This is the fourth slide -->
 		<div class="mySlides uploaded" style="overflow:hidden">
 		<!-- This is the shutterstock image div -->
-			<div class="received animate-slide">
-			<a 	class="next" 
-					id="next-button-hashtag"
-					>&#10095;</a>
-				<!-- This is where the info on the photo will go -->
-				<div id = "photo-info" class="results animate-top-results" style="display:none">
-					<h3 style="margin:15px">
-						This is where the photo info will go in the future.
+			<div class="received-background animate-slide">
+				<div class="received">
+					<a 	class="next" 
+						id="next-button-hashtag"
+						>&#10095;
+					</a>
+					<!-- This is where the info on the photo will go -->
+					<div id = "photo-info" class="results animate-top-results" style="display:none">
+						<h3 style="margin:15px">
+							This is where the photo info will go in the future.
 
-						<input 	class="btn btn-primary btn-sm sexy-button"
-								type="button"
-								value="go back to image"
-								id="photo-info-button"
-								style="border:none;">
-						</input>
-					</h3>
-				</div>
-				<!-- This is the hashtag form div on timer -->
-				<div id = "hashtag-form" class="results animate-slide-mocp" style="display:none">
-					<div id ="hashtag-formText">
-						<h3 style="margin:0px">
-							Lets give it a hashtag.
+							<input 	class="btn btn-primary btn-sm sexy-button"
+									type="button"
+									value="go back to image"
+									id="photo-info-button"
+									style="border:none;">
+							</input>
 						</h3>
-						<br>
-						<input type="text" id="hashtag"></input>
-						<button id ="submit"
-								class="btn btn-primary btn-sm sexy-button"
-						>Submit</button>
-						<br>
-						<br>
-						<br>
-						In 1980, the Museum of Contemporary Photography established a permanent collection and it is through this collection that the museum has been able to provide an invaluable research and educational resource to the general public and thousands of students. In 2009, the growing collection was digitized and made available online for free to the general public. 
-						<br>
-						<br>
-						To extend the reach of the Museum of Contemporary Photography’s vast resources from the collection and enhance connections between the institution and the community, we are utilizing user-generated terms to search through the museum’s collection of over 12,000 photographs.
-						<h3 style="margin:0px">
+					</div>
+					<!-- This is the hashtag form div on timer -->
+					<div id = "hashtag-form" class="results animate-slide-mocp" style="display:none">
+						<div id ="hashtag-formText">
+							<h3 style="margin:0px">
+								Lets give it a hashtag.
+							</h3>
 							<br>
-							Thank you for participating.
+							<input type="text" id="hashtag"></input>
+							<button id ="submit"
+									class="btn btn-primary btn-sm sexy-button"
+							>Submit</button>
 							<br>
-						</h3>
-							Let's see what others have tagged this photo as. 
-						<a class="next" onclick="showSlides()">&#10095;</a>
+							<br>
+							<br>
+							In 1980, the Museum of Contemporary Photography established a permanent collection and it is through this collection that the museum has been able to provide an invaluable research and educational resource to the general public and thousands of students. In 2009, the growing collection was digitized and made available online for free to the general public. 
+							<br>
+							<br>
+							To extend the reach of the Museum of Contemporary Photography’s vast resources from the collection and enhance connections between the institution and the community, we are utilizing user-generated terms to search through the museum’s collection of over 12,000 photographs.
+							<h3 style="margin:0px">
+								<br>
+								<h1-yellow>
+								Thank you for participating.
+								</h1-yellow>
+								<br>
+								<br>
+							</h3>
+								Let's see what others have tagged this photo as. 
+							<a class="next" onclick="showSlides()">&#10095;</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -226,7 +232,8 @@
 									'images/loader-3.png',
 									'images/loader-4.png'
 								];
-		$("#uploadImage").on("click", function(){
+
+		function loaderFunction(){
 			setTimeout(function(){
 				$("#loader-container").fadeIn(1000);
 			}, 1000);
@@ -252,6 +259,10 @@
 					$("#loader-images").attr('src', loaderImagesArray[4]);
 				}, 4000);
 			}
+		}
+
+		$("#uploadImage").on("click", function(){
+			loaderFunction();
 		});
 
 		$("#photo-info-button").on('click', function(){
