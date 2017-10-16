@@ -51,25 +51,27 @@
 		<div class="mySlides siskind" style="overflow: hidden">
 			<div class="slideTwo slideContainerDiv animate-bottom" style="width: 100%">
 				<div id="slideText">
-					<div class="row" id="text-test" style="margin-top:100px">
-						<h1>
-						Upload your image here.
-						</h1>
-						<label class="filebutton">
-						Browse For File!
-							<span><input 
-								type="file" 
-								id="fileInput" 
-								name="fileField"></span>
-						</label>
-						<br>
-						<input 	class="btn btn-primary btn-sm sexy-button"
-								type="button"
-								value="upload here"
-								id="uploadImage"
-								style="border:none;"
-								onclick="showSlides()">
-						</input>
+					<div class="row" id="text-test">
+						<div style="margin-top:100px">
+							<h1>
+							Upload your image here.
+							</h1>
+							<label class="filebutton">
+							Browse For File!
+								<span><input 
+									type="file" 
+									id="fileInput" 
+									name="fileField"></span>
+							</label>
+							<br>
+							<input 	class="btn btn-primary btn-sm sexy-button"
+									type="button"
+									value="upload here"
+									id="uploadImage"
+									style="border:none;"
+									onclick="showSlides()">
+							</input>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -222,7 +224,9 @@
 
 		// This timer activates the hashtag form
 		$("#next-button").on('click', function() {
-			$("#photo-info").fadeIn(500);
+			setTimeout(function(){
+				$("#photo-info").fadeIn(500);
+			}, 500);
 		});
 
 		// This is the img array and timers for loader animation
