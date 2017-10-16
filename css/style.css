@@ -195,7 +195,7 @@ half-opacity{
   width: auto;
   margin-top: -22px;
   padding: 16px;
-  color: white;
+  color: #ffcb19;
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
@@ -209,12 +209,18 @@ half-opacity{
   z-index: 100;
 }
 
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+  z-index: 100;
+}
+
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
+/*.prev:hover, .next:hover {
   background-color: #E5B716;
   text-decoration: none;
   color:#ffcb19;
-}
+}*/
 
 .slideContainerDiv{
   height:100vh;
@@ -307,6 +313,11 @@ label span input {
   align-items: left;
   background-size: cover;
   position:absolute;
+}
+
+#hashtag-formText {
+  padding-left: 19px;
+  padding-right: 17px;
 }
 
 
