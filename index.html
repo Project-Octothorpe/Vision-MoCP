@@ -8,6 +8,8 @@
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>
+	
 </head>
 <body>
 
@@ -31,12 +33,12 @@
 							<br>& <strong>computer vision</strong>.</h1-black>
 						</h4>
 						<br>
-						<input 	class="btn btn-primary btn-sm" 
+						<input 	class="btn btn-primary btn-lg" 
 								type="button" 
 								value="get started" 
 								id="upload-image" 
 								style="border:none"
-								onclick="showSlides(1)">
+								onclick="showSlides()">
 						</input>
 					</div>
 				</div>
@@ -49,57 +51,99 @@
 						<h1>
 						Upload your image here.
 						</h1>
-						<input 	class="btn btn-primary btn-sm"
-								type="button"
-								value="upload here"
-								id="uploadImage-googleAPI"
-								style="border:none;"
-								onclick="">
-						</input>
+						<br>
+						<br>
+						  <div class="fileUpload">
+								<input id="fileInput" class="test" type='file'/>
+						  </div>
+						  <button class="btn btn-primary btn-lg" id="slideFile" type="button" value="click" onclick="chooseFile();">choose file</button>
 					</div>
 				</div>
-				<a class="next" onclick="showSlides(1)">&#10095;</a>
 			</div>
 		</div>
-		<div class="mySlides siskind" style="overflow: hidden">
+		<div class="mySlides skiskind" style="overflow:hidden">
+			<div class="uploaded animate-slide">
+				<img onload="showSlides();" id="myImg" src="#" alt="Your Image" />
+					<h3 style="margin:0px">
+						<div id="loader">
+							<h1>This is a loader</h1>		
+						</div>
+						<div onload="resultsTimer()" id="results" class="results animate-top-results" style="display:none">
+							<a class="next" onclick="showSlides()">&#10095;</a>
+						</div>
+					</h3>
+			</div>
+		</div>
+		<div class="mySlides uploaded" style="overflow:hidden">
+			<div class="received animate-slide">
+				<div class="col-6 col-md-4">
+					<input type="text" id="hashtag">Awesome! Give it a hashtag!</input>
+					<button id ="submit">Submit</button>
+						<a class="next" onclick="showSlides()">&#10095;</a>
+			</div>
+		</div>
+		<div class="mySlides received" style="overflow: hidden">
 			<div class="slideThree slideContainerDiv animate-slide">
+				<div class="slideText">
+					<h1>
+						This is where the tag info will go. 
+					</h1>
 						<input 	class="btn btn-primary btn-lg" 
 								type="button" 
 								style="background-color: gray"
 								value="restart" 
 								style="border:none"
-								onclick="showSlides(0)">
+								onclick="showSlides()">
 						</input>
+				</div>
 			</div>
 		</div>
-<!-- 		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  		<a class="next" onclick="plusSlides(1)">&#10095;</a> -->
-	</div>
+	</div>  
 
 
 	<script type="text/javascript">
-		$( ".next" ).click(function() {
-			console.log(this);
-  			$(".slideTwo").slideUp("slow");
-		});
-	
+
+	// Javascript for the slideshow
+		var slideIndex = 0;
+
+		var slides = document.getElementsByClassName("mySlides");
+	    for (i = 0; i < slides.length; i++) {
+	        slides[i].style.display = "none"; 
+	        console.log(slideIndex);
+	    }
+
+		slides[0].style.display = "block";
 
 
-	var slideIndex = 0;
-	showSlides();
+		function showSlides() {
+			console.log("showing slides");
+			var previousSlide = slideIndex;
+	    	slideIndex++;
+	    	if (slideIndex >= slides.length) {
+	    		console.log("restart");
+	    		slideIndex = 0;
+	    	} 
+	    	console.log(slideIndex);
+	    	slides[previousSlide].style.display = "none"; 
+	    	slides[slideIndex].style.display = "block"; 
+		}
 
-	function showSlides() {
-    	var i;
-    	var slides = document.getElementsByClassName("mySlides");
-    	for (i = 0; i < slides.length; i++) {
-        	slides[i].style.display = "none"; 
-        	console.log("here");
+
+	$("#loader").on('load', function(){
+		console.log("timer for loading screen is working");
+    	function resultsTimer() {
+    		$("#loader").hide();
+    		$("#results").fadeIn(100);
     	}
-    	slideIndex++;
-    	if (slideIndex > slides.length) {slideIndex = 1} 
-    	slides[slideIndex-1].style.display = "block"; 
-	}
-	</script>
+    	setTimeout(resultsTimer, 3000);
+	});
+  
 
+
+
+
+
+	</script>
+	<script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 </html>	
