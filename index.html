@@ -15,7 +15,7 @@
 
 	<div class="slideshow-container">
 
-<!-- 	This is the first slide  -->
+		<!-- 	This is the first slide  -->
 		<div class="mySlides">
 		  	<div class="siskind w3-display-container w3-animate-opacity w3-text-white" style="overflow: hidden">
 		  		<div class="animate-top" id="slideText">
@@ -47,7 +47,7 @@
 		    </div>
 		</div>
 
-<!-- 	This is the second slide -->
+		<!-- 	This is the second slide -->
 		<div class="mySlides siskind" style="overflow: hidden">
 			<div class="slideTwo slideContainerDiv animate-bottom" style="width: 100%">
 				<div id="slideText">
@@ -77,18 +77,18 @@
 			</div>
 		</div>
 
-<!-- 	This is the third slide -->
+		<!-- 	This is the third slide -->
 		<div class="mySlides black-background" style="overflow:hidden">
 			<div class="uploaded animate-slide">
-					<h3 style="margin:0px">
-					<!-- This is the Loader div on timer -->
-						<div id="loader">
-							<div id="loader-container" style="display:none">
-								<img 	id="loader-images" 
-										src="images/loader-start-01.png" 
-										style="width:100%" />
-							</div>
+				<h3 style="margin:0px">
+				<!-- This is the Loader div on timer -->
+					<div id="loader">
+						<div id="loader-container" style="display:none">
+							<img 	id="loader-images" 
+									src="images/loader-start-01.png" 
+									style="width:100%" />
 						</div>
+<<<<<<< HEAD
 					<!-- This is the results div that will replace loader -->
 						<div id="results" class="results animate-top-results" style="display:none">
 							<a 	class="next" 
@@ -107,13 +107,27 @@
 							<a class="next" onclick="showSlides()">&#10095;</a>
 						</div>
 					</h3>
+=======
+					</div>
+				</h3>
+			</div>
+			<!-- This is the results div that will replace loader -->
+			<div id="results" class="results animate-top-results" style="display:none">
+				<a 	class="next" 
+					id="next-button"
+					onclick="showSlides()"
+					>&#10095;
+				</a>
+>>>>>>> UI_UX_graphics-feature
 			</div>
 		</div>
 
 
-<!-- 	This is the fourth slide -->
+		<!-- 	This is the fourth slide -->
 		<div class="mySlides uploaded" style="overflow:hidden">
-		<!-- This is the shutterstock image div -->
+
+
+			<!-- This is the shutterstock image div -->
 			<div class="received-background animate-slide">
 				<div class="received" style="background:none">
 					<a 	class="next" 
@@ -177,7 +191,9 @@
 					</input>
 				</div>
 			</div>
+		</div>
 
+<<<<<<< HEAD
 <!-- 	This is the fifth slide -->
 
 		<div class="mySlides uploaded" style="overflow:hidden">
@@ -188,15 +204,26 @@
 						<a class="next" onclick="showSlides()">&#10095;</a>
 			</div>
 		</div>
+<<<<<<< HEAD
+>>>>>>> user-upload-img-feature
+=======
+		<!-- 	This is the fifth slide -->
+>>>>>>> UI_UX_graphics-feature
+=======
 
+>>>>>>> aba2a424fe6353686588b26d6963f09330af14a9
 		<div class="mySlides received" style="overflow: hidden">
 			<div class="slideThree slideContainerDiv animate-slide">
 				<div class="slideText">
 					<h1>
 						This is where the tag info will go. 
 					</h1>
+					<!-- you can use this div to put append firebase stuff to -->
+					<div id="firebaseShit">
+					</div>
 						<input 	class="btn btn-primary btn-lg" 
 								type="button" 
+								id="restart"
 								style="background-color: gray"
 								value="restart" 
 								style="border:none"
@@ -205,7 +232,11 @@
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
 	</div>  
+=======
+	</div>
+>>>>>>> UI_UX_graphics-feature
 
 
 	<script type="text/javascript">
@@ -216,6 +247,7 @@
 
 		var slides = document.getElementsByClassName("mySlides");
 	    for (i = 0; i < slides.length; i++) {
+	    	console.log(slides.length);
 	        slides[i].style.display = "none"; 
 	        console.log(slideIndex);
 	    }
