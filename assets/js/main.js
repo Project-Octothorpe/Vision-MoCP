@@ -256,6 +256,10 @@ database.ref().on('child_added', function(snapshot){
 })
 
 
+$("#restart").on("click", function(){
+  $("#results").html("");
+})
+
 
 
 
