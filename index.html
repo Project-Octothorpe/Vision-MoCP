@@ -51,6 +51,7 @@
 		<div class="mySlides siskind" style="overflow: hidden">
 			<div class="slideTwo slideContainerDiv animate-bottom" style="width: 100%">
 				<div id="slideText">
+<<<<<<< HEAD
 					<div class="row" id="text-test">
 						<div style="margin-top:100px">
 							<h1>
@@ -72,10 +73,23 @@
 									onclick="showSlides()">
 							</input>
 						</div>
+=======
+					<div class="row" id="text-test" style="margin-top:100px">
+						<h1>
+						Upload your image here.
+						</h1>
+						<br>
+						<br>
+						  <div class="fileUpload">
+								<input id="fileInput" class="test" type='file'/>
+						  </div>
+						  <button class="btn btn-primary btn-lg" id="slideFile" type="button" value="click" onclick="chooseFile();">choose file</button>
+>>>>>>> user-upload-img-feature
 					</div>
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
 
 <!-- 	This is the third slide -->
 		<div class="mySlides black-background" style="overflow:hidden">
@@ -95,10 +109,22 @@
 								id="next-button"
 								onclick="showSlides()"
 								>&#10095;</a>
+=======
+		<div class="mySlides skiskind" style="overflow:hidden">
+			<div class="uploaded animate-slide">
+				<img onload="showSlides();" id="myImg" src="#" alt="Your Image" />
+					<h3 style="margin:0px">
+						<div id="loader">
+							<h1>This is a loader</h1>		
+						</div>
+						<div onload="resultsTimer()" id="results" class="results animate-top-results" style="display:none">
+							<a class="next" onclick="showSlides()">&#10095;</a>
+>>>>>>> user-upload-img-feature
 						</div>
 					</h3>
 			</div>
 		</div>
+<<<<<<< HEAD
 
 <!-- 	This is the fourth slide -->
 		<div class="mySlides uploaded" style="overflow:hidden">
@@ -170,6 +196,16 @@
 			</div>
 
 <!-- 	This is the fifth slide -->
+=======
+		<div class="mySlides uploaded" style="overflow:hidden">
+			<div class="received animate-slide">
+				<div class="col-6 col-md-4">
+					<input type="text" id="hashtag">Awesome! Give it a hashtag!</input>
+					<button id ="submit">Submit</button>
+						<a class="next" onclick="showSlides()">&#10095;</a>
+			</div>
+		</div>
+>>>>>>> user-upload-img-feature
 		<div class="mySlides received" style="overflow: hidden">
 			<div class="slideThree slideContainerDiv animate-slide">
 				<div class="slideText">
@@ -186,12 +222,11 @@
 				</div>
 			</div>
 		</div>
-<!-- 		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  		<a class="next" onclick="plusSlides(1)">&#10095;</a> -->
-	</div>
+	</div>  
 
 
 	<script type="text/javascript">
+<<<<<<< HEAD
 
 		// main slideshow code
 		var slideIndex = 0;
@@ -327,6 +362,47 @@
 			$("#next-button").fadeIn();
 			// $("#received").parent().hide( "slow", function() {});
 		});
+=======
+
+	// Javascript for the slideshow
+		var slideIndex = 0;
+
+		var slides = document.getElementsByClassName("mySlides");
+	    for (i = 0; i < slides.length; i++) {
+	        slides[i].style.display = "none"; 
+	        console.log(slideIndex);
+	    }
+
+		slides[0].style.display = "block";
+
+
+		function showSlides() {
+			console.log("showing slides");
+			var previousSlide = slideIndex;
+	    	slideIndex++;
+	    	if (slideIndex >= slides.length) {
+	    		console.log("restart");
+	    		slideIndex = 0;
+	    	} 
+	    	console.log(slideIndex);
+	    	slides[previousSlide].style.display = "none"; 
+	    	slides[slideIndex].style.display = "block"; 
+		}
+
+
+	$("#loader").on('load', function(){
+		console.log("timer for loading screen is working");
+    	function resultsTimer() {
+    		$("#loader").hide();
+    		$("#results").fadeIn(100);
+    	}
+    	setTimeout(resultsTimer, 3000);
+	});
+  
+
+
+
+>>>>>>> user-upload-img-feature
 
 
 	</script>
