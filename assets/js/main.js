@@ -5,7 +5,6 @@ var API_URL = 'https://api.shutterstock.com/v2';
 var clientId = "cc7ea-f2b80-dd2ff-22097-cbcae-44883";//$('input[name=client_id]').val();
 var clientSecret = "dd14b-4447f-39c62-1052f-cb9cb-24460";//$('input[name=client_secret]').val();
 var authorization = 'Basic ' + window.btoa(clientId + ':' + clientSecret);
-<<<<<<< HEAD
 var shutterImageURL = '';
 var imageID = '';
 var temporaryObj = '';
@@ -33,8 +32,6 @@ function resultsTimer() {
   $("#results").fadeIn(100);
 }
 setTimeout(resultsTimer, 3000);
-=======
->>>>>>> parent of 35e92bc... fixed imageShutterURL
 
 //Handles the User image upload.
 function uploadFiles(event) {
@@ -144,12 +141,9 @@ function search(opts) {
         })
         .done(function(data) {
 
-<<<<<<< HEAD
           shutterImageURL = data.data[0].assets.preview.url;
           imageID = data.data[0].id;
-=======
           var shutterImageURL = data.data[0].assets.preview.url;
->>>>>>> parent of 35e92bc... fixed imageShutterURL
           console.log(shutterImageURL)
           console.log('id = '+imageID)
           var shutterImage = $('<img style="width:100%" src="' + shutterImageURL + '"/>');
@@ -210,13 +204,8 @@ $('#submit').on('click', function(){
 
   // Retrieve user inputs from form
   var hashtagName = $('#hashtag').val().trim();
-<<<<<<< HEAD
   var imageURL = shutterImageURL;
-=======
-
   var imageURL = shutterImageUrl
->>>>>>> parent of 35e92bc... fixed imageShutterURL
-
   var imagesRef = database.ref('images')
 
   console.log(Object.keys(temporaryObj).indexOf(imageID));
