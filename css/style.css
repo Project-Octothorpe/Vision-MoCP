@@ -80,6 +80,7 @@ half-opacity{
 @keyframes animatebottom { 
   from{ bottom:-1000px; opacity:0; } 
   to{ bottom:0; opacity:1; }
+<<<<<<< HEAD
 }
 
 .animate-top-results {
@@ -90,6 +91,18 @@ half-opacity{
   animation-duration: 2s;
 }
 
+=======
+}
+
+.animate-top-results {
+  position: relative;
+  -webkit-animation-name: animatetopResultsAmanda;
+  -webkit-animation-duration: 3s;
+  animation-name: animatetopResultsAmanda;
+  animation-duration: 3s;
+}
+
+>>>>>>> user-upload-img-feature
 
 .animate-top {
   position: relative;
@@ -101,7 +114,11 @@ half-opacity{
 
 @-webkit-keyframes animatetopResultsAmanda {
   from { top:-100%; opacity: 0; } 
+<<<<<<< HEAD
   to { top: 0px; opacity: .7; }
+=======
+  to { top: 0px; opacity: .5; }
+>>>>>>> user-upload-img-feature
 }
 
 /*@keyframes animatetopResultsAmanda { 
@@ -207,12 +224,15 @@ half-opacity{
   right: 0;
   border-radius: 3px 0 0 3px;
   z-index: 100;
+<<<<<<< HEAD
 }
 
 .prev {
   left: 0;
   border-radius: 3px 0 0 3px;
   z-index: 100;
+=======
+>>>>>>> user-upload-img-feature
 }
 
 /* On hover, add a black background color with a little bit see-through */
@@ -288,12 +308,17 @@ label span input {
   overflow: hidden;
   background-color:black;
   color:white;
+<<<<<<< HEAD
   opacity:.7;
+=======
+  opacity:.5;
+>>>>>>> user-upload-img-feature
   min-height: 100vh;
   width:100%;
 }
 
 .received{
+<<<<<<< HEAD
   align-items: center;
   position:relative;
   overflow:hidden;
@@ -318,6 +343,43 @@ label span input {
 #hashtag-formText {
   padding-left: 19px;
   padding-right: 17px;
+=======
+  min-height: 100vh;
+  width:100%;
+  align-items: center;
+  background-size: cover;
+  position:absolute;
+  overflow:hidden;
+  background-color:black;
+}
+
+#loader{
+  position:absolute;
+}
+
+#userImgContainer img {
+  height:100%;
+  width:100%;   
+}
+#userImgContainer {
+  height: 100%;
+  width: 100%;
+}
+.fileUpload {
+  height: 0px;
+  overflow: hidden;
+}
+#slideFile {
+  background-color: black;
+  color: #ffcb19;
+  border-color: white;
+  outline: none;
+}
+#slideFile:hover {
+  background-color: #ffcb19;
+  color: white;
+
+>>>>>>> user-upload-img-feature
 }
 
 
