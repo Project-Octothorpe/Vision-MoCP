@@ -72,7 +72,7 @@
 									onclick="showSlides()">
 							</input>
 						</div>
-
+					</div>
 				</div>
 			</div>
 		</div>
@@ -88,26 +88,6 @@
 									src="images/loader-start-01.png" 
 									style="width:100%" />
 						</div>
-<<<<<<< HEAD
-					<!-- This is the results div that will replace loader -->
-						<div id="results" class="results animate-top-results" style="display:none">
-							<a 	class="next" 
-								id="next-button"
-								onclick="showSlides()"
-								>&#10095;</a>
-
-		<div class="mySlides skiskind" style="overflow:hidden">
-			<div class="uploaded animate-slide">
-				<img onload="showSlides();" id="myImg" src="#" alt="Your Image" />
-					<h3 style="margin:0px">
-						<div id="loader">
-							<h1>This is a loader</h1>		
-						</div>
-						<div onload="resultsTimer()" id="results" class="results animate-top-results" style="display:none">
-							<a class="next" onclick="showSlides()">&#10095;</a>
-						</div>
-					</h3>
-=======
 					</div>
 				</h3>
 			</div>
@@ -118,10 +98,8 @@
 					onclick="showSlides()"
 					>&#10095;
 				</a>
->>>>>>> UI_UX_graphics-feature
 			</div>
 		</div>
-
 
 		<!-- 	This is the fourth slide -->
 		<div class="mySlides uploaded" style="overflow:hidden">
@@ -160,7 +138,9 @@
 								Lets give it a hashtag.
 							</h3>
 							<br>
-							<input type="text" id="hashtag"></input>
+							<input 	type="text" 
+									id="hashtag"
+									style="color:black"></input>
 							<button id ="submit"
 									class="btn btn-primary btn-sm sexy-button"
 							>Submit</button>
@@ -193,25 +173,7 @@
 			</div>
 		</div>
 
-<<<<<<< HEAD
-<!-- 	This is the fifth slide -->
-
-		<div class="mySlides uploaded" style="overflow:hidden">
-			<div class="received animate-slide">
-				<div class="col-6 col-md-4">
-					<input type="text" id="hashtag">Awesome! Give it a hashtag!</input>
-					<button id ="submit">Submit</button>
-						<a class="next" onclick="showSlides()">&#10095;</a>
-			</div>
-		</div>
-<<<<<<< HEAD
->>>>>>> user-upload-img-feature
-=======
 		<!-- 	This is the fifth slide -->
->>>>>>> UI_UX_graphics-feature
-=======
-
->>>>>>> aba2a424fe6353686588b26d6963f09330af14a9
 		<div class="mySlides received" style="overflow: hidden">
 			<div class="slideThree slideContainerDiv animate-slide">
 				<div class="slideText">
@@ -232,15 +194,10 @@
 				</div>
 			</div>
 		</div>
-<<<<<<< HEAD
-	</div>  
-=======
 	</div>
->>>>>>> UI_UX_graphics-feature
 
 
 	<script type="text/javascript">
-
 
 		// main slideshow code
 		var slideIndex = 0;
@@ -372,51 +329,15 @@
 			slideIndex--;
 			slideIndex--;
 			showSlides();
+			$("#photo-info").fadeOut();
 			$("#results").fadeIn(500);
 			$("#next-button").fadeIn();
 			// $("#received").parent().hide( "slow", function() {});
 		});
 
-	// Javascript for the slideshow
-		var slideIndex = 0;
-
-		var slides = document.getElementsByClassName("mySlides");
-	    for (i = 0; i < slides.length; i++) {
-	        slides[i].style.display = "none"; 
-	        console.log(slideIndex);
-	    }
-
-		slides[0].style.display = "block";
-
-
-		function showSlides() {
-			console.log("showing slides");
-			var previousSlide = slideIndex;
-	    	slideIndex++;
-	    	if (slideIndex >= slides.length) {
-	    		console.log("restart");
-	    		slideIndex = 0;
-	    	} 
-	    	console.log(slideIndex);
-	    	slides[previousSlide].style.display = "none"; 
-	    	slides[slideIndex].style.display = "block"; 
-		}
-
-
-	$("#loader").on('load', function(){
-		console.log("timer for loading screen is working");
-    	function resultsTimer() {
-    		$("#loader").hide();
-    		$("#results").fadeIn(100);
-    	}
-    	setTimeout(resultsTimer, 3000);
-	});
-  
-
-
-
-
-
+		$("#restart").on("click", function(){
+			window.location.reload();
+		});
 	</script>
 	<script type="text/javascript" src="assets/js/main.js"></script>
 </body>
