@@ -6,6 +6,9 @@ var clientId = "cc7ea-f2b80-dd2ff-22097-cbcae-44883";//$('input[name=client_id]'
 var clientSecret = "dd14b-4447f-39c62-1052f-cb9cb-24460";//$('input[name=client_secret]').val();
 var authorization = 'Basic ' + window.btoa(clientId + ':' + clientSecret);
 var shutterImageURL = '';
+var imageID = '';
+var temporaryObj = '';
+var hashtagArr = [];
 //Handles the User image upload.
 function uploadFiles(event) {
   console.log('uploaded file')
@@ -113,9 +116,10 @@ function search(opts) {
           }
         })
         .done(function(data) {
-
           shutterImageURL = data.data[0].assets.preview.url;
+          imageID = data.data[0].id;
           console.log(shutterImageURL)
+          console.log('id = '+imageID)
           var shutterImage = $('<img style="width:100%" src="' + shutterImageURL + '"/>');
            $('.received').append(shutterImage);
         })
@@ -128,6 +132,10 @@ function search(opts) {
 function showImage(base64){
   var image = $('<img style="height:100vh" src="data:image/jpeg;base64, '+ base64 +'" />');
   $('.uploaded').append(image);
+}
+
+function sendFirebase(id){
+
 }
 
 //
@@ -153,17 +161,33 @@ $('#submit').on('click', function(){
 
   // Retrieve user inputs from form
   var hashtagName = $('#hashtag').val().trim();
-
   var imageURL = shutterImageURL;
+  var imagesRef = database.ref('images')
 
-  // Create an object for new hashtag to be added
-  var newHashtag = {
-    imageUrl: imageURL,
-    hashtagName: hashtagName
-  };
+  console.log(Object.keys(temporaryObj).indexOf(imageID));
+  if(Object.keys(temporaryObj).indexOf(imageID) == -1){
+    console.log('nothing here')
+    hashtagArr.push(hashtagName)
+    
+  }else{
+    console.log('something here')
+    var hashdex = Object.keys(temporaryObj).indexOf(imageID);
+    console.log(temporaryObj[imageID].hashtag);
+    hashtagArr.push(temporaryObj[imageID].hashtag);
+    console.log(hashtagArr)
+    hashtagArr.push(hashtagName)
+  }
 
-    database.ref().push(newHashtag);
+  console.log(imagesRef.child(imageID).hashtag);
+  imagesRef.child(imageID).set({
+    hashtag: hashtagArr
   });
+});
+
+database.ref().on('child_added', function(snapshot){
+  temporaryObj = snapshot.val();
+})
+
 
 
 
