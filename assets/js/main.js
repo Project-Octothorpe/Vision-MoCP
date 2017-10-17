@@ -143,6 +143,7 @@ function search(opts) {
 
           shutterImageURL = data.data[0].assets.preview.url;
           imageID = data.data[0].id;
+          var shutterImageURL = data.data[0].assets.preview.url;
           console.log(shutterImageURL)
           console.log('id = '+imageID)
           var shutterImage = $('<img style="width:100%" src="' + shutterImageURL + '"/>');
@@ -204,7 +205,7 @@ $('#submit').on('click', function(){
   // Retrieve user inputs from form
   var hashtagName = $('#hashtag').val().trim();
   var imageURL = shutterImageURL;
-
+  var imageURL = shutterImageUrl
   var imagesRef = database.ref('images')
 
   console.log(Object.keys(temporaryObj).indexOf(imageID));
