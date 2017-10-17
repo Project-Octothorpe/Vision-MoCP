@@ -10,29 +10,6 @@ var imageID = '';
 var temporaryObj = '';
 var hashtagArr = [];
 
-
-$(function () {
-    $(".test").change(function () {
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
-            reader.onload = imageIsLoaded;
-            reader.readAsDataURL(this.files[0]);
-        }
-    });
-}); 
-
-function imageIsLoaded(e) {
-    $('#myImg').attr('src', e.target.result);
-};
-function chooseFile() {
-  document.getElementById("fileInput").click();
-}
-function resultsTimer() {
-  $("#loader").hide();
-  $("#results").fadeIn(100);
-}
-setTimeout(resultsTimer, 3000);
-
 //Handles the User image upload.
 function uploadFiles(event) {
   console.log('uploaded file')
@@ -143,27 +120,10 @@ function search(opts) {
 
           shutterImageURL = data.data[0].assets.preview.url;
           imageID = data.data[0].id;
-          var shutterImageURL = data.data[0].assets.preview.url;
           console.log(shutterImageURL)
           console.log('id = '+imageID)
           var shutterImage = $('<img style="width:100%" src="' + shutterImageURL + '"/>');
-           $('.received').append(shutterImage);
-
-
-           shutterImageUrl = data.data[0].assets.preview.url;
-          console.log(shutterImageUrl)
-          var shutterImage = $('<img style="height:100vh" src="' + shutterImageUrl + '"/>');
-           $('.received').append(shutterImage);
-          if (data.total_count === 0) {
-            console.log("none homie");
-            return;
-          }
-          else {
-            shutterImageURL = data.data[0].assets.preview.url;
-            console.log(shutterImageURL)
-            var shutterImage = $('<img style="height:100vh" src="' + shutterImageURL + '"/>');
-             $('.received').append(shutterImage);
-           }
+          $('.received').append(shutterImage);
 
         })
         .fail(function(xhr, status, err) {
@@ -205,7 +165,6 @@ $('#submit').on('click', function(){
   // Retrieve user inputs from form
   var hashtagName = $('#hashtag').val().trim();
   var imageURL = shutterImageURL;
-  var imageURL = shutterImageUrl
   var imagesRef = database.ref('images')
 
   console.log(Object.keys(temporaryObj).indexOf(imageID));
@@ -222,36 +181,12 @@ $('#submit').on('click', function(){
     hashtagArr.push(hashtagName)
   }
 
-//Firebase stuff (hopefully works)
-
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDDZfcjCdkOOFwVReb0yK0VQL25h7S5yLY",
-    authDomain: "octothorpe-mocp.firebaseapp.com",
-    databaseURL: "https://octothorpe-mocp.firebaseio.com",
-    projectId: "octothorpe-mocp",
-    storageBucket: "octothorpe-mocp.appspot.com",
-    messagingSenderId: "1057063941890"
-  };
-  firebase.initializeApp(config);
-
-  var database = firebase.database();
-
-$('#submit').on('click', function(){ 
-
-  // Retrieve user inputs from form
-  var hashtagName = $('#hashtag').val().trim();
-
-  var imageURL = shutterImageUrl
-
 
   console.log(imagesRef.child(imageID).hashtag);
   imagesRef.child(imageID).set({
     hashtag: hashtagArr
   });
-
 });
-
 database.ref().on('child_added', function(snapshot){
   temporaryObj = snapshot.val();
 })
