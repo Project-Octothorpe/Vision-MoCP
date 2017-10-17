@@ -87,6 +87,7 @@ half-opacity{
   position: relative;
   -webkit-animation-name: animatetopResultsAmanda;
   -webkit-animation-duration: 3s;
+<<<<<<< HEAD
   animation-name: animatetopResultsAmanda;
   animation-duration: 3s;
 }
@@ -98,6 +99,8 @@ half-opacity{
   position: relative;
   -webkit-animation-name: animatetopResultsAmanda;
   -webkit-animation-duration: 3s;
+=======
+>>>>>>> parent of 354f9b5... Merge branch 'development' of https://github.com/Project-Octothorpe/Vision-MoCP into development
   animation-name: animatetopResultsAmanda;
   animation-duration: 3s;
 }
