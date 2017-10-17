@@ -141,6 +141,19 @@ half-opacity{
   to{ right:0; opacity:1 }
 }
 
+.animate-slide-reverse {
+    position: absolute;
+    right: -550px;
+    width: 100%;
+    height: 100%;
+    background:none;
+    -webkit-animation: slide 1s reverse;
+    -webkit-animation-delay: 0s;
+    animation: slide 1s reverse;
+    animation-delay: 0s;
+}
+
+
 .animate-slide-mocp {
     position: absolute;
     right: -550px;

@@ -80,28 +80,31 @@
 <!-- 	This is the third slide -->
 		<div class="mySlides black-background" style="overflow:hidden">
 			<div class="uploaded animate-slide">
-					<h3 style="margin:0px">
-					<!-- This is the Loader div on timer -->
-						<div id="loader">
-							<div id="loader-container" style="display:none">
-								<img 	id="loader-images" 
-										src="images/loader-start-01.png" 
-										style="width:100%" />
-							</div>
+				<h3 style="margin:0px">
+				<!-- This is the Loader div on timer -->
+					<div id="loader">
+						<div id="loader-container" style="display:none">
+							<img 	id="loader-images" 
+									src="images/loader-start-01.png" 
+									style="width:100%" />
 						</div>
-					<!-- This is the results div that will replace loader -->
-						<div id="results" class="results animate-top-results" style="display:none">
-							<a 	class="next" 
-								id="next-button"
-								onclick="showSlides()"
-								>&#10095;</a>
-						</div>
-					</h3>
+					</div>
+				</h3>
+			</div>
+			<!-- This is the results div that will replace loader -->
+			<div id="results" class="results animate-top-results" style="display:none">
+				<a 	class="next" 
+					id="next-button"
+					onclick="showSlides()"
+					>&#10095;
+				</a>
 			</div>
 		</div>
 
 <!-- 	This is the fourth slide -->
 		<div class="mySlides uploaded" style="overflow:hidden">
+
+
 		<!-- This is the shutterstock image div -->
 			<div class="received-background animate-slide">
 				<div class="received" style="background:none">
@@ -170,7 +173,12 @@
 			</div>
 
 <!-- 	This is the fifth slide -->
-		<div class="mySlides received" style="overflow: hidden">
+			<div class="mySlides" style="overflow: hidden; background: black !important;">
+				<h1>
+				Hello World
+				</h1>
+			</div>
+<!-- 		<div class="mySlides received" style="overflow: hidden">
 			<div class="slideThree slideContainerDiv animate-slide">
 				<div class="slideText">
 					<h1>
@@ -185,9 +193,10 @@
 						</input>
 				</div>
 			</div>
-		</div>
-<!-- 		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  		<a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+		</div> -->
+
+		<div class="mySlides" style="overflow: hidden; background: black !important;">
+			</div>
 	</div>
 
 
@@ -198,6 +207,7 @@
 
 		var slides = document.getElementsByClassName("mySlides");
 	    for (i = 0; i < slides.length; i++) {
+	    	console.log(slides.length);
 	        slides[i].style.display = "none"; 
 	        console.log(slideIndex);
 	    }
@@ -327,8 +337,6 @@
 			$("#next-button").fadeIn();
 			// $("#received").parent().hide( "slow", function() {});
 		});
-
-
 	</script>
 	<script type="text/javascript" src="assets/js/main.js"></script>
 </body>
