@@ -5,7 +5,7 @@ var API_URL = 'https://api.shutterstock.com/v2';
 var clientId = "cc7ea-f2b80-dd2ff-22097-cbcae-44883";//$('input[name=client_id]').val();
 var clientSecret = "dd14b-4447f-39c62-1052f-cb9cb-24460";//$('input[name=client_secret]').val();
 var authorization = 'Basic ' + window.btoa(clientId + ':' + clientSecret);
-
+var shutterImageURL = '';
 //Handles the User image upload.
 function uploadFiles(event) {
   console.log('uploaded file')
@@ -114,7 +114,7 @@ function search(opts) {
         })
         .done(function(data) {
 
-          var shutterImageURL = data.data[0].assets.preview.url;
+          shutterImageURL = data.data[0].assets.preview.url;
           console.log(shutterImageURL)
           var shutterImage = $('<img style="width:100%" src="' + shutterImageURL + '"/>');
            $('.received').append(shutterImage);
@@ -154,7 +154,7 @@ $('#submit').on('click', function(){
   // Retrieve user inputs from form
   var hashtagName = $('#hashtag').val().trim();
 
-  var imageURL = shutterImageUrl
+  var imageURL = shutterImageURL;
 
   // Create an object for new hashtag to be added
   var newHashtag = {
