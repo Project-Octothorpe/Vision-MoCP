@@ -180,6 +180,9 @@
 					<h1>
 						This is where the tag info will go. 
 					</h1>
+					<!-- you can use this div to put append firebase stuff to -->
+					<div id="firebaseShit">
+					</div>
 						<input 	class="btn btn-primary btn-lg" 
 								type="button" 
 								id="restart"
@@ -330,6 +333,10 @@
 			$("#results").fadeIn(500);
 			$("#next-button").fadeIn();
 			// $("#received").parent().hide( "slow", function() {});
+		});
+
+		$("#restart").on("click", function(){
+			window.location.reload();
 		});
 	</script>
 	<script type="text/javascript" src="assets/js/main.js"></script>
