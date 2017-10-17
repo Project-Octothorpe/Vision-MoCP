@@ -6,7 +6,6 @@ var clientId = "cc7ea-f2b80-dd2ff-22097-cbcae-44883";//$('input[name=client_id]'
 var clientSecret = "dd14b-4447f-39c62-1052f-cb9cb-24460";//$('input[name=client_secret]').val();
 var authorization = 'Basic ' + window.btoa(clientId + ':' + clientSecret);
 var shutterImageURL = '';
-
 var imageID = '';
 var temporaryObj = '';
 var hashtagArr = [];
