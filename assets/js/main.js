@@ -135,6 +135,10 @@ $('#uploadImage').on('click', function(event){
   uploadFiles(event);
 })
 
+$("#restart").on("click", function(){
+  $("#results").html("");
+})
+
 
 
 
