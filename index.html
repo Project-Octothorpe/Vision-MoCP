@@ -11,13 +11,13 @@
 	<script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>
 	
 </head>
-<body>
+<body onload="displayFirstSlide()">
 
 	<div class="slideshow-container">
 
-		<!-- 	This is the first slide  -->
-		<div class="mySlides">
-		  	<div class="siskind w3-display-container w3-animate-opacity w3-text-white" style="overflow: hidden">
+		<!-- slide 0  -->
+		<div id="0-slide" class="mySlides">
+		  	<div class="siskind" style="overflow: hidden">
 		  		<div class="animate-top" id="slideText">
 		 			<div class="row">
 						<h1><h1-black>
@@ -38,17 +38,16 @@
 						<input 	class="btn btn-primary btn-lg" 
 								type="button" 
 								value="get started" 
-								id="upload-image" 
-								style="border:none"
-								onclick="showSlides()">
+								id="button-0" 
+								style="border:none">
 						</input>
 					</div>
 				</div>
 		    </div>
 		</div>
 
-		<!-- 	This is the second slide -->
-		<div class="mySlides siskind" style="overflow: hidden">
+		<!-- slide 1 -->
+		<div id="1-slide" class="mySlides siskind" style="overflow: hidden">
 			<div class="slideTwo slideContainerDiv animate-bottom" style="width: 100%">
 				<div id="slideText">
 					<div class="row" id="text-test">
@@ -68,8 +67,7 @@
 									type="button"
 									value="upload here"
 									id="uploadImage"
-									style="border:none;"
-									onclick="showSlides()">
+									style="border:none;">
 							</input>
 						</div>
 					</div>
@@ -77,9 +75,9 @@
 			</div>
 		</div>
 
-		<!-- 	This is the third slide -->
-		<div class="mySlides black-background" style="overflow:hidden">
-			<div class="uploaded animate-slide">
+		<!-- slide 2 -->
+		<div id="2-slide" class="mySlides black-background" style="overflow:hidden">
+			<div class="uploaded" style="width:100%">
 				<h3 style="margin:0px">
 				<!-- This is the Loader div on timer -->
 					<div id="loader">
@@ -94,86 +92,85 @@
 			<!-- This is the results div that will replace loader -->
 			<div id="results" class="results animate-top-results" style="display:none">
 				<a 	class="next" 
-					id="next-button"
-					onclick="showSlides()"
+					id="next-button-2"
 					>&#10095;
 				</a>
 			</div>
 		</div>
 
-		<!-- 	This is the fourth slide -->
-		<div class="mySlides uploaded" style="overflow:hidden">
-
-
-			<!-- This is the shutterstock image div -->
-			<div class="received-background animate-slide">
-				<div class="received" style="background:none">
-					<a 	class="next" 
-						id="next-button-hashtag"
-						>&#10095;
-					</a>
-					<a 	class="prev" 
-						id="prev-uploaded-slide"
-						>&#10094;
-					</a>
-					<!-- This is where the info on the photo will go 
-					it appears after the photo-info-button is activated -->
-					<div id = "photo-info" class="results animate-top-results" style="display:none">
-						<h3 style="margin:15px">
-							This is where the photo info will go in the future.
-
-							<input 	class="btn btn-primary btn-sm sexy-button"
-									type="button"
-									value="go back to image"
-									id="photo-info-back-button"
-									style="border:none;">
-							</input>
-						</h3>
+		<!-- slide 3 -->
+		<div id="3-slide" class="mySlides uploaded" style="overflow:hidden">
+				<div class="slideFourSlides received-background">
+					<div class="received" style="background:none">
+						<a 	class="next" 
+							id="next-button-3"
+							>&#10095;
+						</a>
+						<a 	class="prev" 
+							id="prev-button-3"
+							>&#10094;
+						</a>
+						<input 	class="btn btn-primary btn-lg" 
+						type="button"
+						id="photo-info-button"
+						style="background-color: gray"
+						value="click for photo information" 
+						style="border:none">
+				</input>
 					</div>
-					<!-- This is the hashtag form...
-					it appears after next-button-hashtag is activated -->
-					<div id = "hashtag-form" class="results animate-slide-mocp" style="display:none">
-						<div id ="hashtag-formText">
-							<h3 style="margin:0px">
-								Lets give it a hashtag.
-							</h3>
-							<br>
-							<input 	type="text" 
-									id="hashtag"
-									style="color:black"></input>
-							<button id ="submit"
-									class="btn btn-primary btn-sm sexy-button"
-							>Submit</button>
-							<br>
-							<br>
-							In 1980, the Museum of Contemporary Photography established a permanent collection and it is through this collection that the museum has been able to provide an invaluable research and educational resource to the general public and thousands of students. In 2009, the growing collection was digitized and made available online for free to the general public. 
-							<br>
-							<br>
-							To extend the reach of the Museum of Contemporary Photography’s vast resources from the collection and enhance connections between the institution and the community, we are utilizing user-generated terms to search through the museum’s collection of over 12,000 photographs.
-							<h3 style="margin:0px">
-								<br>
-								<h1-yellow>
-								Thank you for participating.
-								</h1-yellow>
-								<br>
-							</h3>
-								Let's see what others have tagged this photo as. 
-						</div>
-						<a class="next" onclick="showSlides()">&#10095;</a>
-						<a class="prev" id="prev-hashtag-form">&#10094;</a>
-					</div>
-					<input 	class="btn btn-primary btn-lg" 
-							type="button"
-							id="photo-info-button"
-							style="background-color: gray"
-							value="click for photo information" 
-							style="border:none">
-					</input>
+				</div>
+				<!-- This is where the info on the photo will go 
+				it appears after the photo-info-button is activated -->
+				<div id = "photo-info" class="results animate-top-results" style="display:none">
+					<h3 style="margin:15px">
+						This is where the photo info will go in the future.
+
+						<input 	class="btn btn-primary btn-sm sexy-button"
+								type="button"
+								value="go back to image"
+								id="photo-info-back-button"
+								style="border:none;">
+						</input>
+					</h3>
 				</div>
 			</div>
 		</div>
 
-		<!-- 	This is the fifth slide -->
+		<!-- slide 4 -->
+		<div id="4-slide" class="mySlides received" style="overflow:hidden">
+			<div id = "hashtag-form" class="results black-background">
+				<div id ="hashtag-formText">
+					<h3 style="margin:0px">
+						Lets give it a hashtag.
+					</h3>
+					<br>
+					<input 	type="text" 
+							id="hashtag"
+							style="color:black"></input>
+					<button id ="submit"
+							class="btn btn-primary btn-sm sexy-button"
+					>Submit</button>
+					<br>
+					<br>
+					In 1980, the Museum of Contemporary Photography established a permanent collection and it is through this collection that the museum has been able to provide an invaluable research and educational resource to the general public and thousands of students. In 2009, the growing collection was digitized and made available online for free to the general public. 
+					<br>
+					<br>
+					To extend the reach of the Museum of Contemporary Photography’s vast resources from the collection and enhance connections between the institution and the community, we are utilizing user-generated terms to search through the museum’s collection of over 12,000 photographs.
+					<h3 style="margin:0px">
+						<br>
+						<h1-yellow>
+						Thank you for participating.
+						</h1-yellow>
+						<br>
+					</h3>
+						Let's see what others have tagged this photo as. 
+				</div>
+				<a class="next" id="next-button-4">&#10095;</a>
+				<a class="prev" id="prev-button-4">&#10094;</a>
+			</div>
+		</div>
+
+		<!-- slide 4 -->
 		<div class="mySlides received" style="overflow: hidden">
 			<div class="slideThree slideContainerDiv animate-slide">
 				<div class="slideText">
@@ -188,8 +185,7 @@
 								id="restart"
 								style="background-color: gray"
 								value="restart" 
-								style="border:none"
-								onclick="showSlides()">
+								style="border:none">
 						</input>
 				</div>
 			</div>
@@ -197,149 +193,8 @@
 	</div>
 
 
-	<script type="text/javascript">
-
-		// main slideshow code
-		var slideIndex = 0;
-
-		var slides = document.getElementsByClassName("mySlides");
-	    for (i = 0; i < slides.length; i++) {
-	    	console.log(slides.length);
-	        slides[i].style.display = "none"; 
-	        console.log(slideIndex);
-	    }
-
-		slides[0].style.display = "block";
-
-
-		function showSlides() {
-			console.log("showing slides");
-			var previousSlide = slideIndex;
-	    	slideIndex++;
-	    	if (slideIndex >= slides.length) {
-	    		console.log("restart");
-	    		slideIndex = 0;
-	    	} 
-	    	console.log(slideIndex);
-	    	slides[previousSlide].style.display = "none"; 
-	    	slides[slideIndex].style.display = "block"; 
-		}
-		// end of main slideshow code
-
-		// This is the img array and timers for loader animation
-		var loaderImagesArray = [ 	'images/loader-start-01.png',
-									'images/loader-1.png',
-									'images/loader-2.png', 
-									'images/loader-3.png',
-									'images/loader-4.png'
-								];
-
-		function loaderFunction(){
-			setTimeout(function(){
-				$("#loader-container").fadeIn(1000);
-			}, 1000);
-
-			//I need to clean this up lol... 
-			for (count=0; count<5; count++){
-				setTimeout(function(){
-					$("#loader-images").attr('src', loaderImagesArray[0]);
-				}, 2000);
-
-				setTimeout(function(){
-					$("#loader-images").attr('src', loaderImagesArray[1]);
-				}, 2500);
-
-				setTimeout(function(){
-					$("#loader-images").attr('src', loaderImagesArray[2]);
-				}, 3000);
-
-				setTimeout(function(){
-					$("#loader-images").attr('src', loaderImagesArray[3]);
-				}, 3500);
-				setTimeout(function(){
-					$("#loader-images").attr('src', loaderImagesArray[4]);
-				}, 4000);
-				setTimeout(function(){
-					$("#loader-images").attr('src', loaderImagesArray[0]);
-				}, 4500);
-
-			}
-			setTimeout(function(){
-				$("#loader-container").fadeOut(1000);
-			}, 4700);
-		}
-
-
-
-		// This timer activates the loader animation 
-		$("#uploadImage").on('click', function(){
-			console.log("timer for loading screen is working");
-	    	function resultsTimer() {
-	    		$("#loader").hide();
-	    		$("#results").fadeIn(100);
-	    	}
-	    	setTimeout(resultsTimer, 5500);
-		});
-
-		$("#next-button").on('click', function(){
-			$("#next-button").hide();
-		})
-
-		// This timer activates the hashtag form and fades out the photo info
-		$("#next-button-hashtag").on('click', function() {
-			$("#photo-info").hide();
-			$("#prev-uploaded-slide").hide();
-			$("#hashtag-form").fadeIn(500);
-			$("#hashtag-formText").fadeIn(500);
-			$("#next-button-hashtag").hide();
-		});
-
-		// This timer activates the photo info page
-		$("#photo-info-button").on('click', function() {
-			console.log("the photo info should be fading in, yo")
-			$("#photo-info").fadeIn(300);
-			$("#photo-info-back-button").parent().fadeIn( "slow", function(){});
-		});
-
-		$("#uploadImage").on("click", function(){
-			loaderFunction();
-		});
-
-		$("#photo-info-back-button").on('click', function(){
-			$("#photo-info-back-button").parent().slideUp( "slow", function() {
-				$(this).fadeOut(300);
-    			console.log("did we slide up, yet?")
-  			});
-  			setTimeout(function(){
-  				$("#photo-info").fadeOut(300);
-  			}, 600);
-		});
-
-		$('#prev-hashtag-form').on('click', function(){
-			setTimeout(function(){
-				$("#hashtag-formText").parent().hide( "slow", function() {});
-  			}, 300);
-  			$("#hashtag-formText").fadeOut(400);
-  			$("#next-button-hashtag").fadeIn();
-  			$("#prev-uploaded-slide").fadeIn();
-		});
-
-		$("#prev-uploaded-slide").on('click', function(){
-			$(".received-background").parent().hide();
-			slideIndex--;
-			slideIndex--;
-			showSlides();
-			$("#photo-info").fadeOut();
-			$("#results").fadeIn(500);
-			$("#next-button").fadeIn();
-			// $("#received").parent().hide( "slow", function() {});
-		});
-
-		$("#restart").on("click", function(){
-			window.location.reload();
-		});
-	</script>
 	<script type="text/javascript" src="assets/js/main.js"></script>
+	<script type="text/javascript" src="assets/js/style.js"></script>
 </body>
 </html>	
 
