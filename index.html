@@ -90,18 +90,20 @@
 				</h3>
 			</div>
 			<!-- This is the results div that will replace loader -->
-			<div id="results" class="results animate-top-results" style="display:none">
+			<div id="results" class="results animate-top-results" style="display:none; vertical-align: center">
 				<a 	class="next" 
 					id="next-button-2"
 					>&#10095;
 				</a>
+				<div id="resultsText" class="results-text">
+				</div>
 			</div>
 		</div>
 
 		<!-- slide 3 -->
 		<div id="3-slide" class="mySlides uploaded" style="overflow:hidden">
 				<div class="slideFourSlides received-background">
-					<div class="received" style="background:none">
+					<div class="received slideContainerDiv" style="background:none">
 						<a 	class="next" 
 							id="next-button-3"
 							>&#10095;
@@ -110,35 +112,47 @@
 							id="prev-button-3"
 							>&#10094;
 						</a>
-						<input 	class="btn btn-primary btn-lg" 
-						type="button"
-						id="photo-info-button"
-						style="background-color: gray"
-						value="click for photo information" 
-						style="border:none">
-				</input>
+						<div class="thirdSlideTop">
+							<img src="images/mocp.png" alt="MoCP logo" style="position:relative; padding:10px; margin-top: 10px; margin-left: 10px; height:90%">
+							<input 	
+								class="btn btn-lg" 
+								type="button"
+								id="photo-info-button"
+								value="more &#11015;" 
+								style="align-items:center; color:#ffcb19; background:none">
+							</input>
+						</div>
 					</div>
 				</div>
 				<!-- This is where the info on the photo will go 
 				it appears after the photo-info-button is activated -->
-				<div id = "photo-info" class="results animate-top-results" style="display:none">
-					<h3 style="margin:15px">
-						This is where the photo info will go in the future.
-
-						<input 	class="btn btn-primary btn-sm sexy-button"
-								type="button"
-								value="go back to image"
-								id="photo-info-back-button"
-								style="border:none;">
+				<div id = "photo-info" class="photoInfo animate-top" style="display:none">
+					<img src="images/mocp.png" alt="MoCP logo" style="position:relative; padding:20px; bottom:0px; right:0px; margin-top:10px; margin-right:8px; height:90%">
+					<div style="margin:15px; color:white">
+						<h3>This is where the photo info will go in the future.</h3>
+						<p style="color:#ffcb19"><strong>Aaron Siskind</strong></p>
+						<p style="color:#eaeaea"><strong>Untitled From the Pleasures and Terrors of Levitation</strong></p>
+						<p style="color:#eaeaea">1961</p>
+						<br>
+						<p style="color:#ffcb19">The Photographers of the New Bauhaus</p>
+						<p style="color:#eaeaea">
+							Founded in Chicago in 1937 by Lászlo Moholy-Nagy, the New Bauhaus aimed to train “the perfect designer” through a modernist and multi-disciplinary curriculum that encouraged experimentation and broke down the hierarchy between fine and applied arts and industry. 
+						</p>
+						<input 	
+							class="btn btn-sm sexy-button"
+							type="button"
+							value="go back to image"
+							id="photo-info-back-button"
+							style="border:none; background-color::#ffcb19; color:black">
 						</input>
-					</h3>
+					</div>
 				</div>
 			</div>
 		</div>
 
 		<!-- slide 4 -->
-		<div id="4-slide" class="mySlides received" style="overflow:hidden">
-			<div id = "hashtag-form" class="results black-background">
+		<div id="4-slide" class="mySlides received slideContainerDiv" style="overflow:hidden">
+			<div id = "hashtag-form" class="hashTagForm black-background">
 				<div id ="hashtag-formText">
 					<h3 style="margin:0px">
 						Lets give it a hashtag.

@@ -74,7 +74,6 @@ function loaderFunction(){
 // --------- slide 0 code ---------
 
 $("#button-0").on('click', function(){
-	console.log("#button-0");
 	slides[0].style.display = "none";
 	slides[1].style.display = "block";
 });
@@ -99,7 +98,6 @@ $("#uploadImage").on('click', function(){
 // --------- slide 2 code ---------
 
 $("#next-button-2").on('click',function(){
-	console.log("next-button-third-slide pressed");
 	$(slides[2]).fadeOut(500);
 	$(slides[3]).fadeIn(500);
 });
@@ -109,13 +107,11 @@ $("#next-button-2").on('click',function(){
 // --------- slide 3 code ---------
 
 $("#prev-button-3").on('click', function(){
-	console.log("prev-button-3 pressed");
 	$(slides[3]).fadeOut(500);
 	$(slides[2]).fadeIn(500);
 })
 
 $("#next-button-3").on('click', function(){
-	console.log("next-button-3 pressed");
 	$(slides[3]).fadeOut(500);
 	$(slides[4]).fadeIn(500, function(){
 		// slides[4].style.webkitAnimationName = 'slide';
@@ -124,7 +120,6 @@ $("#next-button-3").on('click', function(){
 })
 
 $("#photo-info-button").on('click', function() {
-	console.log("the photo info should be fading in, yo")
 	$("#photo-info").fadeIn(300);
 	$("#photo-info-back-button").parent().fadeIn( "slow", function(){});
 });
@@ -143,13 +138,11 @@ $("#photo-info-back-button").on('click', function(){
 // --------- slide 4 code ---------
 
 $("#prev-button-4").on('click', function(){
-	console.log("prev-button-4 pressed");
 	$(slides[4]).fadeOut(500);
 	$(slides[3]).fadeIn(500);
 });
 
 $("#next-button-4").on('click', function(){
-	console.log("next-button-4 pressed");
 	$(slides[4]).fadeOut(500);
 	$(slides[5]).fadeIn(500);
 });
@@ -159,7 +152,6 @@ $("#next-button-4").on('click', function(){
 // --------- slide 5 code ---------
 
 $("#prev-button-5").on('click', function(){
-	console.log("prev-button-5 pressed");
 	$(slides[5]).fadeOut(500);
 	$(slides[4]).fadeIn(500);
 });
