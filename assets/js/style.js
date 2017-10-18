@@ -85,7 +85,7 @@ $("#button-0").on('click', function(){
 
 $("#uploadImage").on('click', function(){
 	slides[1].style.display = "none";
-	slides[2].style.display = "block";
+	$(slides[2]).fadeIn(500);
 	loaderFunction();
 	function resultsTimer() {
 		$("#loader").hide();
@@ -100,8 +100,8 @@ $("#uploadImage").on('click', function(){
 
 $("#next-button-2").on('click',function(){
 	console.log("next-button-third-slide pressed");
-	slides[2].style.display = "none";
-	slides[3].style.display = "block";
+	$(slides[2]).fadeOut(500);
+	$(slides[3]).fadeIn(500);
 });
 
 
@@ -110,14 +110,17 @@ $("#next-button-2").on('click',function(){
 
 $("#prev-button-3").on('click', function(){
 	console.log("prev-button-3 pressed");
-	slides[3].style.display = "none";
-	slides[2].style.display = "block";
+	$(slides[3]).fadeOut(500);
+	$(slides[2]).fadeIn(500);
 })
 
 $("#next-button-3").on('click', function(){
 	console.log("next-button-3 pressed");
-	slides[3].style.display = "none";
-	slides[4].style.display = "block";
+	$(slides[3]).fadeOut(500);
+	$(slides[4]).fadeIn(500, function(){
+		// slides[4].style.webkitAnimationName = 'slide';
+		// slides[4].style.webkitAnimationDuration = '1s';
+	});
 })
 
 $("#photo-info-button").on('click', function() {
@@ -141,20 +144,25 @@ $("#photo-info-back-button").on('click', function(){
 
 $("#prev-button-4").on('click', function(){
 	console.log("prev-button-4 pressed");
-	slides[4].style.display = "none";
-	slides[3].style.display = "block";
-})
+	$(slides[4]).fadeOut(500);
+	$(slides[3]).fadeIn(500);
+});
 
 $("#next-button-4").on('click', function(){
 	console.log("next-button-4 pressed");
-	slides[4].style.display = "none";
-	slides[5].style.display = "block";
-})
+	$(slides[4]).fadeOut(500);
+	$(slides[5]).fadeIn(500);
+});
 
 
 
 // --------- slide 5 code ---------
 
+$("#prev-button-5").on('click', function(){
+	console.log("prev-button-5 pressed");
+	$(slides[5]).fadeOut(500);
+	$(slides[4]).fadeIn(500);
+});
 
 
 
