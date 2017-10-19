@@ -129,8 +129,8 @@ $("#photo-info-back-button").on('click', function(){
 		$(this).fadeOut(300);
 	});
 	setTimeout(function(){
-		$("#photo-info").fadeOut(300);
-	}, 600);
+		$("#photo-info").fadeOut(400);
+	}, 200);
 });
 
 
