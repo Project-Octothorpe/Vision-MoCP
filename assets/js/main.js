@@ -34,6 +34,7 @@ function processFile(event) {
 //Gets all the information from the returned json object
 function displayJSON(object){
   var labelArr = object.responses[0].labelAnnotations;
+  console.log(labelArr)
   // var string = "";
   // for (var i=0; i < labelArr.length; i++){
   //   console.log(labelArr[i].description + " | " + parseInt(labelArr[i].score*100) + "% match");
@@ -94,7 +95,7 @@ function sendFiletoCloudVision(file){
    
       success: function(data, textStatus, jqXHR) {
         displayJSON(data);
-        console.log(data);
+        //console.log(data);
         //console.log(textStatus)
         //console.log(jqXHR)
       },
@@ -106,9 +107,9 @@ function sendFiletoCloudVision(file){
   });
 }
 function search(opts) {
-        console.log("look here" + opts);
+        //console.log("look here" + opts);
         var url = API_URL + '/images/search';
-        console.log(url);
+        //console.log(url);
         $.ajax({
           url: url,
           data: opts,
@@ -120,8 +121,8 @@ function search(opts) {
 
           shutterImageURL = data.data[0].assets.preview.url;
           imageID = data.data[0].id;
-          console.log(shutterImageURL)
-          console.log('id = '+imageID)
+          //console.log(shutterImageURL)
+          //console.log('id = '+imageID)
           var shutterImage = $('<img style="width:100%" src="' + shutterImageURL + '"/>');
           $('.received').append(shutterImage);
 
@@ -143,7 +144,15 @@ function sendFirebase(id){
 
 //
 $('#uploadImage').on('click', function(event){
-  uploadFiles(event);
+  console.log($('#fileInput')[0].files[0])
+  if($('#fileInput')[0].files[0] !== undefined){
+    uploadFiles(event);
+  }else{
+    alert('please try adding a different file.');
+    event.stopPropagation(); // Stop stuff happening
+    event.preventDefault(); // Totally stop stuff happening
+  }
+  
 })
 //Firebase stuff (hopefully works)
 
@@ -171,21 +180,25 @@ $('#submit').on('click', function(){
   if(Object.keys(temporaryObj).indexOf(imageID) == -1){
     console.log('nothing here')
     hashtagArr.push(hashtagName)
+    console.log(hashtagArr)
     
   }else{
     console.log('something here')
     var hashdex = Object.keys(temporaryObj).indexOf(imageID);
-    console.log(temporaryObj[imageID].hashtag);
-    hashtagArr.push(temporaryObj[imageID].hashtag);
-    console.log(hashtagArr)
+    //console.log(temporaryObj[imageID].hashtag);
+    hashtagArr = temporaryObj[imageID].hashtag;
     hashtagArr.push(hashtagName)
+    console.log(hashtagArr)
   }
-
-
-  console.log(imagesRef.child(imageID).hashtag);
   imagesRef.child(imageID).set({
+    url: imageURL,
     hashtag: hashtagArr
   });
+  for(var i=0; i < hashtagArr.length; i++){
+    var newParagraph = $('<p>');
+    newParagraph.text(hashtagArr[i]);
+    $('#firebaseShit').append(newParagraph);
+  }
 });
 database.ref().on('child_added', function(snapshot){
   temporaryObj = snapshot.val();
