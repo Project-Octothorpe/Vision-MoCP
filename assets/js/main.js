@@ -41,10 +41,11 @@ function displayJSON(object){
   //   $('#results').append('<p>'+labelArr[i].description + " | " + parseInt(labelArr[i].score*100) + "% match" + '</p>');
   //   string += labelArr[i].description + ", "
   // }
+
   var apiString = "";
   for (var i=0; i < 5; i++) {
     console.log(labelArr[i].description + " | " + parseInt(labelArr[i].score*100) + "% match");
-    $('#results').append('<p>'+labelArr[i].description + " | " + parseInt(labelArr[i].score*100) + "% match" + '</p>');
+    $('#resultsText').append('<p>'+labelArr[i].description + '<br>' + parseInt(labelArr[i].score*100) + "% match" + '</p>');
     apiString += labelArr[i].description + "+"
   }
   //$('#results').append('<p>'+apiString+'</p>')
