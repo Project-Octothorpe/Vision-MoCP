@@ -39,7 +39,7 @@
 								type="button" 
 								value="get started" 
 								id="button-0" 
-								style="border:none">
+								style="border:none; background-color:#ffcb19; color:white">
 						</input>
 					</div>
 				</div>
@@ -52,22 +52,33 @@
 				<div id="slideText">
 					<div class="row" id="text-test">
 						<div style="margin-top:100px">
-							<h1>
+							<h1 style="color:#eaeaea">
 							Upload your image here.
 							</h1>
-							<label class="filebutton">
-							Browse For File!
+							<br>
+							<br>
+							<label id="file-button" class="filebutton" style="background:none">
+								<img src="images/camera-icon-gray.png" style="height:40px">
 								<span><input 
 									type="file" 
 									id="fileInput" 
 									name="fileField"></span>
 							</label>
+							<div id="confirmation-div" style="display: none">
+								<label id="file-button" class="filebutton" style="background:none">
+								<img src="images/camera-icon-yellow.png" style="height:40px">
+								<span><input 
+									type="file" 
+									id="fileInput" 
+									name="fileField"></span>
+							</label>
+							</div>
 							<br>
-							<input 	class="btn btn-primary btn-sm sexy-button"
+							<input 	class="btn btn-primary btn-lg"
 									type="button"
 									value="upload here"
 									id="uploadImage"
-									style="border:none;">
+									style="border:none; background-color:#ffcb19; color:black"
 							</input>
 						</div>
 					</div>
@@ -115,11 +126,11 @@
 						<div class="thirdSlideTop">
 							<img src="images/mocp.png" alt="MoCP logo" style="position:relative; padding:10px; margin-top: 10px; margin-left: 10px; height:90%">
 							<input 	
-								class="btn btn-lg" 
-								type="button"
+								type="image"
 								id="photo-info-button"
-								value="info &#11015;" 
-								style="align-items:center; color:#ffcb19; background:none">
+								src="images/down-arrow.png"
+								value="more info"
+								style="align-items:center; background:none; position:absolute; z-index: 100; bottom:20px; width:50px; right:20px">
 							</input>
 						</div>
 					</div>
@@ -128,7 +139,7 @@
 				it appears after the photo-info-button is activated -->
 				<div id = "photo-info" class="photoInfo animate-top" style="display:none">
 					<img src="images/mocp.png" alt="MoCP logo" style="position:relative; padding:20px; bottom:0px; right:0px; margin-top:10px; margin-right:8px; height:90%">
-					<div style="margin:15px; color:white">
+					<div style="margin:15px; color:white; font-size: 13px">
 						<h3>This is where the photo info will go in the future.</h3>
 						<p style="color:#ffcb19"><strong>Aaron Siskind</strong></p>
 						<p style="color:#eaeaea"><strong>Untitled From the Pleasures and Terrors of Levitation</strong></p>
@@ -161,9 +172,10 @@
 					<br>
 					<input 	type="text" 
 							id="hashtag"
-							style="color:black"></input>
+							style="color:black; background-color: #eaeaea"></input>
 					<button id ="submit"
-							class="btn btn-primary btn-sm sexy-button"
+							class="btn btn-sm"
+							style="border:none; background-color:#ffcb19; color:black"
 					>Submit</button>
 					<br>
 					<br>
@@ -177,6 +189,7 @@
 						Thank you for participating.
 						</h1-yellow>
 						<br>
+						<br>
 					</h3>
 						Let's see what others have tagged this photo as. 
 				</div>
@@ -187,22 +200,19 @@
 
 		<!-- slide 5 -->
 		<div id ="5-slide" class="mySlides" style="overflow: hidden">
-			<div class="slideContainerDiv">
-				<div class="slideText">
-					<h1>
-						This is where the tag info will go. 
-					</h1>
-					<!-- you can use this div to put append firebase stuff to -->
-					<div id="firebaseShit">
+			<div class="slideContainerDiv received-background">
+				<div class="thirdSlideTop">
+					<img src="images/mocp.png" alt="MoCP logo" style="position:relative; padding:10px; margin-top: 10px; margin-left: 10px; height:90%"> 
+					<div class="slideText" style="margin-left: 19px; margin-right: 17px; padding:5%;">
+						<h3>
+							Other people have tagged this photo as:   
+						</h3>
+						<!-- you can use this div to put append firebase stuff to -->
+						<div id="firebaseShit">
+						</div>
 					</div>
-						<input 	class="btn btn-primary btn-lg" 
-								type="button" 
-								id="restart"
-								style="background-color: gray"
-								value="restart" 
-								style="border:none">
-						</input>
 				</div>
+				<a class="next" id="next-button-5">&#10095;</a>
 				<a class="prev" id="prev-button-5">&#10094;</a>
 			</div>
 		</div>

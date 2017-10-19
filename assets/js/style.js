@@ -76,11 +76,18 @@ function loaderFunction(){
 $("#button-0").on('click', function(){
 	slides[0].style.display = "none";
 	slides[1].style.display = "block";
+	$("#uploadImage").hide();
 });
 
 
 
 // --------- slide 1 code ---------
+
+$("#fileInput").on('click', function(){
+	$("#file-button").hide();
+	$("#confirmation-div").fadeIn();
+	$("#uploadImage").fadeIn();
+});
 
 $("#uploadImage").on('click', function(){
 	slides[1].style.display = "none";
@@ -121,12 +128,14 @@ $("#next-button-3").on('click', function(){
 
 $("#photo-info-button").on('click', function() {
 	$("#photo-info").fadeIn(300);
+	$("#photo-info-button").fadeOut();
 	$("#photo-info-back-button").parent().fadeIn( "slow", function(){});
 });
 
 $("#photo-info-back-button").on('click', function(){
 	$("#photo-info-back-button").parent().slideUp( "slow", function() {
 		$(this).fadeOut(300);
+		$("#photo-info-button").fadeIn();
 	});
 	setTimeout(function(){
 		$("#photo-info").fadeOut(400);
@@ -147,6 +156,11 @@ $("#next-button-4").on('click', function(){
 	$(slides[5]).fadeIn(500);
 });
 
+$("#submit").on('click', function(){
+	$(slides[4]).fadeOut(500);
+	$(slides[5]).fadeIn(500);
+});
+
 
 
 // --------- slide 5 code ---------
@@ -154,6 +168,10 @@ $("#next-button-4").on('click', function(){
 $("#prev-button-5").on('click', function(){
 	$(slides[5]).fadeOut(500);
 	$(slides[4]).fadeIn(500);
+});
+
+$("#next-button-5").on('click', function(){
+	window.location.reload();
 });
 
 
