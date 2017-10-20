@@ -148,6 +148,7 @@ $('#uploadImage').on('click', function(event){
   console.log($('#fileInput')[0].files[0])
   if($('#fileInput')[0].files[0] !== undefined){
     uploadFiles(event);
+    uploadNow();
   }else{
     alert('please try adding a different file.');
     event.stopPropagation(); // Stop stuff happening

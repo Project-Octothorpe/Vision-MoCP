@@ -91,7 +91,7 @@ $("#fileInput").on('click', function(){
 	$("#uploadImage").fadeIn();
 });
 
-$("#uploadImage").on('click', function(){
+function uploadNow(){
 	slides[1].style.display = "none";
 	$(slides[2]).fadeIn(500);
 	loaderFunction();
@@ -100,7 +100,7 @@ $("#uploadImage").on('click', function(){
 		$("#results").fadeIn(100);
 	}
 	setTimeout(resultsTimer, 5500);
-});
+};
 
 
 
