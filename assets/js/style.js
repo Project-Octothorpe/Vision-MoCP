@@ -85,7 +85,9 @@ $("#button-0").on('click', function(){
 
 $("#fileInput").on('click', function(){
 	$("#file-button").hide();
-	$("#confirmation-div").fadeIn();
+	setTimeout(function(){
+		$("#confirmation-div").fadeIn();
+	}, 500);
 	$("#uploadImage").fadeIn();
 });
 

@@ -1,6 +1,6 @@
 ~A Team #Octothorpe Production~ (add some emojis here)
 
-Members: (use relevant people emojis, or nerd behind a computer emojis)
+Members:
 Lane A.
 Wilson C.
 Wes I.
