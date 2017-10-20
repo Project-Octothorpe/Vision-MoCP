@@ -175,7 +175,8 @@ $('#submit').on('click', function(){
   // Retrieve user inputs from form
   var hashtagName = $('#hashtag').val().trim();
   var imageURL = shutterImageURL;
-  var imagesRef = database.ref('images')
+  var imagesRef = database.ref('images');
+  $('#firebaseShit').empty();
 
   console.log(Object.keys(temporaryObj).indexOf(imageID));
   if(Object.keys(temporaryObj).indexOf(imageID) == -1){
