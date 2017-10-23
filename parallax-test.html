@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>parallax test | vision MoCP</title>
+<!-- 	<link rel="stylesheet" type="text/css" href="css/style.css"> -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>
+	<style type="text/css">
+		body, html {
+    	height: 100%;
+		}
+
+		.parallax {
+		    background-image: url('images/siskind.jpg');
+		    height: 100%; 
+		    left:0px;
+		    top:0px;
+		    background-attachment: fixed;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+		}
+
+		.parallax-text {
+			margin-top:0px;
+			margin-bottom: 0px;
+			margin-left: 40px;
+			margin-right: 0px;
+			padding-top: 0px;
+			padding-bottom: 20px;
+			color:white;
+			background-color:black;
+		}
+
+		#parallax-intro {
+			left:0px;
+			margin-left:40px;
+		}
+
+		/*---------  animation classes  ---------*/
+
+		.slideLeft{
+			left:0px;
+			opacity: 1;
+		}
+
+		.animate-top {
+		  position: relative;
+		  -webkit-animation-name: animatetop;
+		  -webkit-animation-duration: 2s;
+		  animation-name: animatetop;
+		  animation-duration: 2s;
+		}
+
+		@-webkit-keyframes animatetop {
+		  from { top:-600px; opacity:0; } 
+		  to { bottom:0px; opacity:1; }
+		}
+
+		@keyframes animatetop { 
+		  from{ top:-600px; opacity:0; } 
+		  to{ bottom:0; opacity:1; }
+		}
+	</style>
+
+</head>
+<body onload="displayFirstSlide()">
+
+	<div id="slide-0" class="parallax mySlides">
+		<div id="parallax-intro" class="animate-top">
+			<h1 style="margin-top: 0px">
+				<br><strong>Welcome</strong>
+				<br>to the 
+				<br><strong>MoCP</strong> collection.
+			</h1> 
+		</div>
+	</div>
+	<div id="slide-1" class="mySlides" style="background-color: black;font-size:36px; display:none">
+		<div class="parallax-text">
+			<h4 style="margin:0"><br>Let's find
+				<br>photographs
+				<br>using
+				<br><strong>machine learning</strong>
+				<br>& <strong>computer vision</strong>.
+			</h4>
+		</div>
+	</div>
+	<div id="slide-2" class="parallax mySlides" style="display:none">
+		<div id="test-div" style="display:none">
+		<h1 style="background:hidden; margin:0px; top:50px; color:red">
+		Hello World
+		</h1>
+		</div>
+	</div>
+	
+
+	<script type="text/javascript">
+
+	var slideIndex = 0;
+
+	// var slides = document.getElementsByClassName("mySlides");
+	// console.log("this is how many slides you have: " + slides.length);
+	// for (i=0; i<slides.length; i++) {
+	// 	slides[i].style.display = "none";
+	// 	console.log(slideIndex);
+	// }
+
+	function displayFirstSlide(){
+		// slides[0].style.display = "block";
+		// $("#parallax-intro").animate({ "left": "-=50px" }, "slow" );
+		$("#parallax-intro").fadeIn(700);
+		setTimeout(function(){
+			$("#slide-1").fadeIn();
+		}, 500);
+	}
+
+	$(window).on('scroll',function() {
+		var y_scroll_pos = window.pageYOffset;
+	    var slideTwoTrigger = 125;
+	    var slideTwoDivTrigger = 650;  
+
+	    if(y_scroll_pos > slideTwoTrigger) {
+	    	$("#slide-2").fadeIn();
+	    	console.log(window.pageYOffset);
+	    }
+	    if(y_scroll_pos > slideTwoDivTrigger) {
+	    	console.log("slide");
+	    	$("#test-div").fadeIn(800);
+	    }
+	    if(y_scroll_pos < slideTwoDivTrigger) {
+	    	$("#test-div").fadeOut(800);
+	    }
+	});
+
+		
+	</script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+</html>
+
+
+
+
+
